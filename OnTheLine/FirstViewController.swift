@@ -18,8 +18,9 @@ class FirstViewController: UIViewController {
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
         //addSampleUser()
-        readAllWagers()
+        //readAllWagers()
     }
+
     
     private func addSampleUser() {
         let sample_data = [
