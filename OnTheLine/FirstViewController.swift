@@ -20,22 +20,22 @@ class FirstViewController: UIViewController {
         //addSampleUser()
         //readAllWagers()
     }
-
-    
-    private func addSampleUser() {
-        let sample_data = [
-            "firstname":"Bob",
-            "email":"bob@gmail.com"
-        ]
-        
+    private func addUserToDatabase(uid: String, email: String) {
+        let userData = ["firstname": uid,
+                        "email": email]
         var docRef: DocumentReference? = nil
-        docRef = db.collection("Users").addDocument(data: sample_data) { err in
+        docRef = db.collection("Users").addDocument(data: userData) { err in
             if let err = err {
                 print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(docRef!.documentID)")
             }
         }
+        
+    }
+
+    
+
     }
     
     private func readAllWagers() {
@@ -49,38 +49,4 @@ class FirstViewController: UIViewController {
             }
         }
     }
-    
-    /*
-    private func join(itemKey) {
-        const data = { [this.userId]: true}
-        const members = this.db.object(`items/${itemKey}/members`)
-        members.update(data)
-    }
-    leave(itemKey) {
-    const member = this.db.object(`items/${itemKey}/members/${this.userId}`)
-    member.remove()
-    }
-    */
-
 }
-        
-        /*
-        let newRef = db.collection("Users").document()
-        newRef.setData(sample_data) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(newRef!.documentID)")
-            }
-        }
-        */
-
-        // Code for Realtime Database
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        //let ref = Database.database().reference()
-        //let usersRef = ref.child("Users")
-        //usersRef.childByAutoId().setValue(["firstname":"Bob", "email":"bob@gmail.com"])
-        //db.collection("Users")
-        // Add a new document with a generated id.
-

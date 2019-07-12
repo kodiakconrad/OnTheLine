@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseUI
+import Firebase
 
 
 class LoginViewController: UIViewController {
@@ -32,6 +33,7 @@ class LoginViewController: UIViewController {
         
         //Set ourselves as delegate
         authUI?.delegate = self
+        authUI?.providers = [FUIEmailAuth()]
         
         // Get a reference with auth UI view controller
         let authViewController = authUI!.authViewController()
@@ -61,9 +63,16 @@ extension UIViewController: FUIAuthDelegate {
             // log error
             return
         }
-        // How to access uid after log in, will need this later
-        // authDataResult?.user.uid
+        // access uid and email for adding ot database
+        if let user_id = authDataResult?.user.uid, let email = authDataResult!.user.email {
+            // need to check if this is a new user or not
+            // addUserToDatabase(uid: user_id, email: email)
+        } else {
+            // log error
+            return
+        }
         
         performSegue(withIdentifier: "goHome", sender: self)
     }
+    
 }
