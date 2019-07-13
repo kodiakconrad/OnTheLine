@@ -30,16 +30,16 @@ class LoginViewController: UIViewController {
         guard authUI != nil else {
             return
         }
-        
-        //Set ourselves as delegate
-        authUI?.delegate = self
-        authUI?.providers = [FUIEmailAuth()]
+        authUI?.delegate = self         //Set ourselves as delegate
+        let providers = [FUIEmailAuth()]
+        authUI?.providers = providers
         
         // Get a reference with auth UI view controller
         let authViewController = authUI!.authViewController()
         
         //Show it
         present(authViewController, animated: true, completion: nil)
+        print("presented")
     }
     
 
