@@ -22,17 +22,28 @@ class FirstViewController: UIViewController {
         //readAllWagers()
     }
     private func getUserInfo() {
-        let user = Auth.auth().currentUser
-        if let user = user {
+        if let user = Auth.auth().currentUser {
             // The user's ID, unique to the Firebase project.
             // Do NOT use this value to authenticate with your backend server,
             // if you have one. Use getTokenWithCompletion:completion: instead.
             let uid = user.uid
-            print(uid)
             let email = user.email
             let photoURL = user.photoURL
             // ...
         }
+    }
+    @IBAction func pressedLogOut(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            print("signed out")
+        }
+        catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initial = storyboard.instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = initial
     }
     
     private func addUserToDatabase(uid: String, email: String) {

@@ -22,6 +22,12 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.performSegue(withIdentifier: "goHome", sender: nil)
+        }
+    }
     
     @IBAction func loginTapped(_ sender: UIButton) {
         
@@ -39,8 +45,23 @@ class LoginViewController: UIViewController {
         
         //Show it
         present(authViewController, animated: true, completion: nil)
-        print("presented")
+        
     }
+    /*
+    private func addUserToDatabase(uid: String, email: String) {
+        let userData = ["firstname": uid,
+                        "email": email]
+        var docRef: DocumentReference? = nil
+        docRef = db.collection("Users").addDocument(data: userData) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("Document added with ID: \(docRef!.documentID)")
+            }
+        }
+        
+    }
+    */
     
 
     /*
@@ -64,7 +85,14 @@ extension UIViewController: FUIAuthDelegate {
             return
         }
         // access uid and email for adding ot database
-        if let user_id = authDataResult?.user.uid, let email = authDataResult!.user.email {
+        if let user = authDataResult?.user {
+            if user.metadata.creationDate == user.metadata.lastSignInDate {
+                guard let email = user.email else {
+                    // log error
+                    return
+                }
+                //addUserToDatabase(uid: user.uid, email: email)
+            }
             // need to check if this is a new user or not
             // addUserToDatabase(uid: user_id, email: email)
         } else {
@@ -74,5 +102,6 @@ extension UIViewController: FUIAuthDelegate {
         
         performSegue(withIdentifier: "goHome", sender: self)
     }
+    
     
 }
