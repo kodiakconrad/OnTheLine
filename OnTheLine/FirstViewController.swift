@@ -11,6 +11,7 @@ import Firebase
 
 class FirstViewController: UIViewController {
     var db: Firestore!
+    var handle: AuthStateDidChangeListenerHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,23 @@ class FirstViewController: UIViewController {
         //addSampleUser()
         //readAllWagers()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // [START auth_listener]
+        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            // [START_EXCLUDE]
+            //self.setTitleDisplay(user)
+            //self.tableView.reloadData()
+            // [END_EXCLUDE]
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        // [START remove_auth_listener]
+        Auth.auth().removeStateDidChangeListener(handle!)
+        // [END remove_auth_listener]
+    }
+        
     private func getUserInfo() {
         if let user = Auth.auth().currentUser {
             // The user's ID, unique to the Firebase project.
@@ -45,7 +63,7 @@ class FirstViewController: UIViewController {
         let initial = storyboard.instantiateInitialViewController()
         UIApplication.shared.keyWindow?.rootViewController = initial
     }
-    
+    /*
     private func addUserToDatabase(uid: String, email: String) {
         let userData = ["firstname": uid,
                         "email": email]
@@ -59,6 +77,7 @@ class FirstViewController: UIViewController {
         }
         
     }
+    */
     
     /*
     private func readAllWagers() {

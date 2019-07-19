@@ -11,7 +11,7 @@
 		C2AB40CDAD7597C91C64F9CA /* Pods_OnTheLineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B406E7E7287647AE65FE3EB /* Pods_OnTheLineUITests.framework */; };
 		C92E22AB36F04D3FD31AD021 /* Pods_OnTheLineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA0FB7C4D36EA8C210F0CF8 /* Pods_OnTheLineTests.framework */; };
 		D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */; };
-		D793024E227525AD001A3C2F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D793024D227525AD001A3C2F /* LoginViewController.swift */; };
+		D793024E227525AD001A3C2F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D793024D227525AD001A3C2F /* StartViewController.swift */; };
 		D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */; };
 		D7F6011622683BFD00F1AFA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */; };
 		D7F6011B22683BFD00F1AFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F6011922683BFD00F1AFA0 /* Main.storyboard */; };
@@ -47,7 +47,7 @@
 		B65939426AE2611A9884BC63 /* Pods-OnTheLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLine.release.xcconfig"; path = "Target Support Files/Pods-OnTheLine/Pods-OnTheLine.release.xcconfig"; sourceTree = "<group>"; };
 		BAC0956BD9C3A05330BC9CC4 /* Pods-OnTheLineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLineUITests.debug.xcconfig"; path = "Target Support Files/Pods-OnTheLineUITests/Pods-OnTheLineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		D793024D227525AD001A3C2F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D793024D227525AD001A3C2F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D7F6011022683BFD00F1AFA0 /* OnTheLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +61,7 @@
 		D7F6013122683BFF00F1AFA0 /* OnTheLineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheLineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F6013522683BFF00F1AFA0 /* OnTheLineUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheLineUITests.swift; sourceTree = "<group>"; };
 		D7F6013722683BFF00F1AFA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7FE443022E28422008604A6 /* OnTheLine.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnTheLine.entitlements; sourceTree = "<group>"; };
 		DF097F8470B2DC36A7A71DDA /* Pods-OnTheLineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLineTests.debug.xcconfig"; path = "Target Support Files/Pods-OnTheLineTests/Pods-OnTheLineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F0831D49076095378F4AA472 /* Pods_OnTheLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -141,9 +142,10 @@
 		D7F6011222683BFD00F1AFA0 /* OnTheLine */ = {
 			isa = PBXGroup;
 			children = (
+				D7FE443022E28422008604A6 /* OnTheLine.entitlements */,
 				D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */,
 				D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */,
-				D793024D227525AD001A3C2F /* LoginViewController.swift */,
+				D793024D227525AD001A3C2F /* StartViewController.swift */,
 				D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */,
 				D7F6011922683BFD00F1AFA0 /* Main.storyboard */,
 				D7F6011C22683BFF00F1AFA0 /* Assets.xcassets */,
@@ -244,6 +246,11 @@
 				TargetAttributes = {
 					D7F6010F22683BFD00F1AFA0 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					D7F6012522683BFF00F1AFA0 = {
 						CreatedOnToolsVersion = 10.1;
@@ -465,7 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D793024E227525AD001A3C2F /* LoginViewController.swift in Sources */,
+				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,
 				D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */,
 				D7F6011622683BFD00F1AFA0 /* FirstViewController.swift in Sources */,
 			);
@@ -554,7 +561,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -615,7 +621,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -643,6 +648,7 @@
 			baseConfigurationReference = 5891595F3871B8F4DEBDF151 /* Pods-OnTheLine.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OnTheLine/OnTheLine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PGY9P234WH;
 				INFOPLIST_FILE = OnTheLine/Info.plist;
@@ -662,6 +668,7 @@
 			baseConfigurationReference = B65939426AE2611A9884BC63 /* Pods-OnTheLine.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OnTheLine/OnTheLine.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PGY9P234WH;
 				INFOPLIST_FILE = OnTheLine/Info.plist;

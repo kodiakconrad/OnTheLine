@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  StartViewController.swift
 //  OnTheLine
 //
 //  Created by Kodiak Conrad on 4/27/19.
@@ -8,10 +8,9 @@
 
 import UIKit
 import FirebaseUI
-import Firebase
 
 
-class LoginViewController: UIViewController {
+class StartViewController: UIViewController {
     var db: Firestore!
     
     override func viewDidLoad() {
@@ -32,12 +31,16 @@ class LoginViewController: UIViewController {
     @IBAction func loginTapped(_ sender: UIButton) {
         
         // Get default AuthUI object
+
         let authUI = FUIAuth.defaultAuthUI()
         guard authUI != nil else {
             return
         }
         authUI?.delegate = self         //Set ourselves as delegate
-        let providers = [FUIEmailAuth()]
+        let providers :[FUIAuthProvider] = [
+                        FUIEmailAuth(),
+                        FUIGoogleAuth(),
+                        FUIFacebookAuth(),]
         authUI?.providers = providers
         
         // Get a reference with auth UI view controller
@@ -47,8 +50,13 @@ class LoginViewController: UIViewController {
         present(authViewController, animated: true, completion: nil)
         
     }
+
+    @IBAction func signupTapped(_ sender: Any) {
+        
+    }
+    
     /*
-    private func addUserToDatabase(uid: String, email: String) {
+     private func addUserToDatabase(uid: String, email: String) {
         let userData = ["firstname": uid,
                         "email": email]
         var docRef: DocumentReference? = nil

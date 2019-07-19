@@ -92,26 +92,27 @@
             </objects>
             <point key="canvasLocation" x="750" y="360"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="6iI-5m-xw5">
             <objects>
-                <viewController id="N4m-34-w3r" customClass="LoginViewController" customModule="OnTheLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="N4m-34-w3r" customClass="StartViewController" customModule="OnTheLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wu0-lL-EcG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="8Mt-aT-Uzg">
-                                <rect key="frame" x="144" y="485" width="87" height="86.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-da-80k">
+                                <rect key="frame" x="87" y="280" width="200" height="101.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JE-OC-lAw">
-                                        <rect key="frame" x="0.0" y="0.0" width="87" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OnTheLine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JE-OC-lAw">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbN-VZ-Wsl">
-                                        <rect key="frame" x="18.5" y="36.5" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="23.5" width="200" height="50"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Eli-UI-BtY"/>
                                             <constraint firstAttribute="width" constant="50" id="Q0e-3f-Qma"/>
                                             <constraint firstAttribute="height" constant="50" id="wgY-nb-Dcf"/>
                                         </constraints>
@@ -119,26 +120,76 @@
                                         <connections>
                                             <action selector="loginTapped:" destination="N4m-34-w3r" eventType="touchUpInside" id="g8a-CB-kGk"/>
                                             <action selector="loginTapped:" destination="Z9w-zz-pSc" eventType="touchUpInside" id="lHP-Ow-JMY"/>
+                                            <segue destination="PB1-HF-wep" kind="show" identifier="goToLogIn" id="LsS-Sp-owe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbh-k0-JQX">
+                                        <rect key="frame" x="0.0" y="76.5" width="200" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="wpv-OY-lUZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Sign Up"/>
+                                        <connections>
+                                            <action selector="signupTapped:" destination="N4m-34-w3r" eventType="touchUpInside" id="ZlA-gb-ypz"/>
+                                            <segue destination="tJK-PQ-Bun" kind="show" identifier="goToSignUp" id="WBj-NN-Qqy"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="J09-fy-WlE"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="8Mt-aT-Uzg" firstAttribute="centerX" secondItem="wu0-lL-EcG" secondAttribute="centerX" id="eSw-Ku-F2A"/>
-                            <constraint firstItem="8Mt-aT-Uzg" firstAttribute="centerY" secondItem="wu0-lL-EcG" secondAttribute="centerY" id="kNb-6K-n7j"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dYh-OL-GVX"/>
                     </view>
                     <connections>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="goHome" id="wwS-Uu-2d7"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="goHome" id="3iD-ws-leR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZnO-Nj-RwU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Z9w-zz-pSc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-815" y="0.0"/>
+            <point key="canvasLocation" x="-1769" y="0.0"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="04M-Wm-diI">
+            <objects>
+                <viewController id="tJK-PQ-Bun" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lMF-mb-pUr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFN-NT-guc">
+                                <rect key="frame" x="123" y="120" width="142" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="CRs-aj-6Bb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W1N-33-zUz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-860" y="394.45277361319341"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="rR7-co-3bj">
+            <objects>
+                <viewController id="PB1-HF-wep" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hWu-Gk-PKs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ghe-5N-Meb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwx-WL-MIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-860" y="-321"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
