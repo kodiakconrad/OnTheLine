@@ -29,7 +29,7 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
-        
+       /*
         // Get default AuthUI object
 
         let authUI = FUIAuth.defaultAuthUI()
@@ -48,6 +48,7 @@ class StartViewController: UIViewController {
         
         //Show it
         present(authViewController, animated: true, completion: nil)
+ */
         
     }
 
