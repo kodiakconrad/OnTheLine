@@ -34,17 +34,18 @@ class SignUpViewController: UIViewController {
                     self.performSegue(withIdentifier: "goToAccountSetup", sender: self)
                 }
                 else{
+                    print("there was an error here \n\n\n")
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     
                     alertController.addAction(defaultAction)
+                    print("before presented")
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
         }
     }
     
-
     /*
     // MARK: - Navigation
 
