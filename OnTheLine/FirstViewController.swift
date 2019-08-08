@@ -18,7 +18,15 @@ class FirstViewController: UIViewController {
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            // ...
+        } else {
+            // No user is signed in.
+            // ...
+        }
         getUserInfo()
+        
         //addSampleUser()
         //readAllWagers()
     }
@@ -46,7 +54,6 @@ class FirstViewController: UIViewController {
             // if you have one. Use getTokenWithCompletion:completion: instead.
             let uid = user.uid
             let email = user.email
-            let photoURL = user.photoURL
             // ...
         }
     }
