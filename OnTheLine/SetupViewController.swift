@@ -50,7 +50,7 @@ class SetupViewController: UIViewController {
                 }
             }
         
-            self.performSegue(withIdentifier: "goToAccountSetup", sender: self)
+            self.performSegue(withIdentifier: "setupToHome", sender: self)
         } else {
             print("user does not exist")
         }
