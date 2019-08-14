@@ -13,9 +13,10 @@ import FirebaseFirestore
 
 class SetupViewController: UIViewController {
 
-    @IBOutlet weak var firstName: UITextField!
-    @IBOutlet weak var lastName: UITextField!
+    @IBOutlet weak var firstname: UITextField!
+    @IBOutlet weak var lastname: UITextField!
     @IBOutlet weak var username: UITextField!
+    
     
     var db: Firestore!
     var ref: DatabaseReference!
@@ -35,10 +36,11 @@ class SetupViewController: UIViewController {
         if let user = Auth.auth().currentUser {
             let userID = user.uid
             let email = user.email
-        
-            let usernameRef = db.collection("Ledger").document(username.text!)
+            let ledgerRef = db.collection("Ledger")
+            let usernameRef = ledgerRef.document(username.text!)
             usernameRef.getDocument { (document, error) in
                 if let document = document, document.exists {
+                    print("got to 'document exists'")
                     let alertController = UIAlertController(title: "Username already taken", message: "Please try a new username", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     
@@ -57,11 +59,12 @@ class SetupViewController: UIViewController {
     }
     
     private func addUserToDatabase(userID: String, email: String) {
-        let userData: [String: Any] = ["firstname": firstName,
-                                       "lastname": lastName,
+        print("got to method call")
+        let userData: [String: Any] = ["firstname": firstname.text!,
+                                       "lastname": lastname.text!,
                                        "email": email,
-                                       "username": username]
-        
+                                       "username": username.text!]
+        print("created user data")
         db.collection("Users").document(userID).setData(userData) { err in
             if let err = err {
                 print("Error writing document: \(err)")
