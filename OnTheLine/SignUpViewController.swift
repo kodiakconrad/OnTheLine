@@ -24,8 +24,8 @@ class SignUpViewController: UIViewController {
         if password.text != passwordConfirm.text {
             let alertController = UIAlertController(title: "Password Incorrect", message: "Please re-type password", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            
             alertController.addAction(defaultAction)
+            
             self.present(alertController, animated: true, completion: nil)
         }
         else{

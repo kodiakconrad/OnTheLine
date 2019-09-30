@@ -36,36 +36,42 @@ class SetupViewController: UIViewController {
         if let user = Auth.auth().currentUser {
             let userID = user.uid
             let email = user.email
-            let ledgerRef = db.collection("Ledger")
-            let usernameRef = ledgerRef.document(username.text!)
+            let userRef = db.collection("Users")
+            let usernameRef = userRef.document(username.text!)
             usernameRef.getDocument { (document, error) in
                 if let document = document, document.exists {
-                    print("got to 'document exists'")
                     let alertController = UIAlertController(title: "Username already taken", message: "Please try a new username", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                    
                     alertController.addAction(defaultAction)
-    
+                    
                     self.present(alertController, animated: true, completion: nil)
                 } else {
+                    print("username was not taken")
                     self.addUserToDatabase(userID: userID, email: email ?? "")
+                    self.performSegue(withIdentifier: "setupToHome", sender: self)
                 }
             }
         
-            self.performSegue(withIdentifier: "setupToHome", sender: self)
         } else {
             print("user does not exist")
         }
     }
+    private func topmostController() -> UIViewController? {
+        if var topController = UIApplication.shared.keyWindow?.rootViewController {
+            while let presentedViewController = topController.presentedViewController {
+                topController = presentedViewController
+            }
+            return topController
+        }
+        return nil
+    }
     
     private func addUserToDatabase(userID: String, email: String) {
-        print("got to method call")
         let userData: [String: Any] = ["firstname": firstname.text!,
                                        "lastname": lastname.text!,
                                        "email": email,
-                                       "username": username.text!]
-        print("created user data")
-        db.collection("Users").document(userID).setData(userData) { err in
+                                       "uid": userID]
+        db.collection("Users").document(username.text!).setData(userData) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
