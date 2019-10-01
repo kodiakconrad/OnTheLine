@@ -11,6 +11,12 @@
 		C2AB40CDAD7597C91C64F9CA /* Pods_OnTheLineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B406E7E7287647AE65FE3EB /* Pods_OnTheLineUITests.framework */; };
 		C92E22AB36F04D3FD31AD021 /* Pods_OnTheLineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA0FB7C4D36EA8C210F0CF8 /* Pods_OnTheLineTests.framework */; };
 		D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */; };
+		D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFA2343C04A000D260C /* NewWagerVC.swift */; };
+		D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFC2343C064000D260C /* LedgerVC.swift */; };
+		D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFE2343C07F000D260C /* ActivityVC.swift */; };
+		D78C8B032343C0BB000D260C /* WagersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B022343C0BB000D260C /* WagersVC.swift */; };
+		D78C8B082343C3F8000D260C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B072343C3F8000D260C /* ProfileVC.swift */; };
+		D78C8B0A2343D63C000D260C /* Wager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B092343D63C000D260C /* Wager.swift */; };
 		D793024E227525AD001A3C2F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D793024D227525AD001A3C2F /* StartViewController.swift */; };
 		D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0722FA155000A4079A /* LoginViewController.swift */; };
 		D7E4BD0A22FA155E00A4079A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */; };
@@ -50,6 +56,12 @@
 		B65939426AE2611A9884BC63 /* Pods-OnTheLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLine.release.xcconfig"; path = "Target Support Files/Pods-OnTheLine/Pods-OnTheLine.release.xcconfig"; sourceTree = "<group>"; };
 		BAC0956BD9C3A05330BC9CC4 /* Pods-OnTheLineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLineUITests.debug.xcconfig"; path = "Target Support Files/Pods-OnTheLineUITests/Pods-OnTheLineUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D78C8AFA2343C04A000D260C /* NewWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWagerVC.swift; sourceTree = "<group>"; };
+		D78C8AFC2343C064000D260C /* LedgerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerVC.swift; sourceTree = "<group>"; };
+		D78C8AFE2343C07F000D260C /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityVC.swift; path = /Users/Kodiak/Apps/OnTheLine/OnTheLine/ActivityVC.swift; sourceTree = "<absolute>"; };
+		D78C8B022343C0BB000D260C /* WagersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagersVC.swift; sourceTree = "<group>"; };
+		D78C8B072343C3F8000D260C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = /Users/Kodiak/Apps/OnTheLine/OnTheLine/ProfileVC.swift; sourceTree = "<absolute>"; };
+		D78C8B092343D63C000D260C /* Wager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wager.swift; sourceTree = "<group>"; };
 		D793024D227525AD001A3C2F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D7E4BD0722FA155000A4079A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -154,7 +166,13 @@
 				D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */,
 				D7E4BD0B22FA35EC00A4079A /* SetupViewController.swift */,
 				D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */,
+				D78C8AFE2343C07F000D260C /* ActivityVC.swift */,
+				D78C8B022343C0BB000D260C /* WagersVC.swift */,
+				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
+				D78C8AFC2343C064000D260C /* LedgerVC.swift */,
+				D78C8B072343C3F8000D260C /* ProfileVC.swift */,
 				D7F6011922683BFD00F1AFA0 /* Main.storyboard */,
+				D78C8B092343D63C000D260C /* Wager.swift */,
 				D7F6011E22683BFF00F1AFA0 /* LaunchScreen.storyboard */,
 				D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */,
 				D7F6012122683BFF00F1AFA0 /* Info.plist */,
@@ -481,12 +499,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78C8B0A2343D63C000D260C /* Wager.swift in Sources */,
+				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
 				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,
+				D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */,
 				D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */,
 				D7F6011622683BFD00F1AFA0 /* FirstViewController.swift in Sources */,
 				D7E4BD0C22FA35EC00A4079A /* SetupViewController.swift in Sources */,
+				D78C8B032343C0BB000D260C /* WagersVC.swift in Sources */,
 				D7E4BD0A22FA155E00A4079A /* SignUpViewController.swift in Sources */,
+				D78C8B082343C3F8000D260C /* ProfileVC.swift in Sources */,
+				D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

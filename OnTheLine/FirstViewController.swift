@@ -1,5 +1,4 @@
 //
-//  LoginViewController.swift
 //  OnTheLine
 //
 //  Created by Kodiak Conrad on 4/17/19.
