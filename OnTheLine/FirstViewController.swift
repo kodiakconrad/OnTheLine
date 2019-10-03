@@ -24,38 +24,15 @@ class FirstViewController: UIViewController {
             // No user is signed in.
             // ...
         }
-        getUserInfo()
+        //getUserInfo()
         
         //addSampleUser()
         //readAllWagers()
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        // [START auth_listener]
-        handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            // [START_EXCLUDE]
-            //self.setTitleDisplay(user)
-            //self.tableView.reloadData()
-            // [END_EXCLUDE]
-        }
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        // [START remove_auth_listener]
-        Auth.auth().removeStateDidChangeListener(handle!)
-        // [END remove_auth_listener]
-    }
+    
+
         
-    private func getUserInfo() {
-        if let user = Auth.auth().currentUser {
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            let uid = user.uid
-            let email = user.email
-            // ...
-        }
-    }
+
     @IBAction func pressedLogOut(_ sender: Any) {
         do {
             try Auth.auth().signOut()

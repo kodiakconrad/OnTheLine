@@ -15,7 +15,10 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addFriend(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 
