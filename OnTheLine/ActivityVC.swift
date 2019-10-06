@@ -9,23 +9,11 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ActivityVC: UIViewController {
-    var db: Firestore!
-    var handle: AuthStateDidChangeListenerHandle?
+class ActivityVC: TabViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
-        db = Firestore.firestore()
-        if Auth.auth().currentUser != nil {
-            // User is signed in.
-            // ...
-        } else {
-            // No user is signed in.
-            // ...
-        }
-        getUserInfo()
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,16 +25,7 @@ class ActivityVC: UIViewController {
             // [END_EXCLUDE]
         }
     }
-    private func getUserInfo() {
-        if let user = Auth.auth().currentUser {
-            // The user's ID, unique to the Firebase project.
-            // Do NOT use this value to authenticate with your backend server,
-            // if you have one. Use getTokenWithCompletion:completion: instead.
-            let uid = user.uid
-            let email = user.email
-            // ...
-        }
-    }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

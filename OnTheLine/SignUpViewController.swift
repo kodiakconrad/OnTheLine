@@ -43,11 +43,8 @@ class SignUpViewController: UIViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         else{
-            print("creating user")
             Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
-                print("user created")
                 if error == nil {
-                    print("creating account")
                     self.createAccount()
                     self.performSegue(withIdentifier: "setupToHome", sender: self)
                 }
@@ -60,12 +57,11 @@ class SignUpViewController: UIViewController {
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
-            print("done")
         }
     }
     
     private func createAccount() {
-        guard let user = Auth.auth().currentUser else {
+        guard Auth.auth().currentUser != nil else {
             print("User Not Created")
             return
         }
@@ -79,7 +75,6 @@ class SignUpViewController: UIViewController {
                     
                 self.present(alertController, animated: true, completion: nil)
             } else {
-                print("username was not taken")
                 self.addUserToDatabase()
                 self.performSegue(withIdentifier: "setupToHome", sender: self)
             }

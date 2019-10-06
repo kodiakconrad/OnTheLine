@@ -17,10 +17,11 @@
 		D78C8B032343C0BB000D260C /* WagersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B022343C0BB000D260C /* WagersVC.swift */; };
 		D78C8B082343C3F8000D260C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B072343C3F8000D260C /* ProfileVC.swift */; };
 		D78C8B0A2343D63C000D260C /* Wager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B092343D63C000D260C /* Wager.swift */; };
+		D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B0D2347B52E000D260C /* TabViewController.swift */; };
+		D78C8B102347BD56000D260C /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B0F2347BD56000D260C /* AddFriendVC.swift */; };
 		D793024E227525AD001A3C2F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D793024D227525AD001A3C2F /* StartViewController.swift */; };
 		D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0722FA155000A4079A /* LoginViewController.swift */; };
 		D7E4BD0A22FA155E00A4079A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */; };
-		D7E4BD0C22FA35EC00A4079A /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0B22FA35EC00A4079A /* SetupViewController.swift */; };
 		D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */; };
 		D7F6011622683BFD00F1AFA0 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */; };
 		D7F6011B22683BFD00F1AFA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F6011922683BFD00F1AFA0 /* Main.storyboard */; };
@@ -62,10 +63,11 @@
 		D78C8B022343C0BB000D260C /* WagersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagersVC.swift; sourceTree = "<group>"; };
 		D78C8B072343C3F8000D260C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = /Users/Kodiak/Apps/OnTheLine/OnTheLine/ProfileVC.swift; sourceTree = "<absolute>"; };
 		D78C8B092343D63C000D260C /* Wager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wager.swift; sourceTree = "<group>"; };
+		D78C8B0D2347B52E000D260C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		D78C8B0F2347BD56000D260C /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
 		D793024D227525AD001A3C2F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D7E4BD0722FA155000A4079A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		D7E4BD0B22FA35EC00A4079A /* SetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		D7F6011022683BFD00F1AFA0 /* OnTheLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -161,17 +163,18 @@
 			isa = PBXGroup;
 			children = (
 				D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */,
+				D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */,
 				D793024D227525AD001A3C2F /* StartViewController.swift */,
 				D7E4BD0722FA155000A4079A /* LoginViewController.swift */,
 				D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */,
-				D7E4BD0B22FA35EC00A4079A /* SetupViewController.swift */,
-				D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */,
+				D78C8B0D2347B52E000D260C /* TabViewController.swift */,
 				D78C8AFE2343C07F000D260C /* ActivityVC.swift */,
 				D78C8B022343C0BB000D260C /* WagersVC.swift */,
 				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
 				D78C8AFC2343C064000D260C /* LedgerVC.swift */,
 				D78C8B072343C3F8000D260C /* ProfileVC.swift */,
 				D7F6011922683BFD00F1AFA0 /* Main.storyboard */,
+				D78C8B0F2347BD56000D260C /* AddFriendVC.swift */,
 				D78C8B092343D63C000D260C /* Wager.swift */,
 				D7F6011E22683BFF00F1AFA0 /* LaunchScreen.storyboard */,
 				D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */,
@@ -503,10 +506,11 @@
 				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
 				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,
+				D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */,
 				D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */,
 				D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */,
 				D7F6011622683BFD00F1AFA0 /* FirstViewController.swift in Sources */,
-				D7E4BD0C22FA35EC00A4079A /* SetupViewController.swift in Sources */,
+				D78C8B102347BD56000D260C /* AddFriendVC.swift in Sources */,
 				D78C8B032343C0BB000D260C /* WagersVC.swift in Sources */,
 				D7E4BD0A22FA155E00A4079A /* SignUpViewController.swift in Sources */,
 				D78C8B082343C3F8000D260C /* ProfileVC.swift in Sources */,

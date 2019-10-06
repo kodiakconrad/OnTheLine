@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LedgerVC: UIViewController {
+class LedgerVC: TabViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

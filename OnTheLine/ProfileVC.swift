@@ -6,17 +6,17 @@
 //
 
 import UIKit
+import Firebase
 
-class ProfileVC: UIViewController {
+class ProfileVC: TabViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func addFriend(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "addFriend", sender: self)
     }
     
     /*

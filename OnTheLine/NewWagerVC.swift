@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewWagerVC: UIViewController {
+class NewWagerVC: TabViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
