@@ -10,6 +10,8 @@
 		8630ABFE23AAE27BEF25FC7F /* Pods_OnTheLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0831D49076095378F4AA472 /* Pods_OnTheLine.framework */; };
 		C2AB40CDAD7597C91C64F9CA /* Pods_OnTheLineUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B406E7E7287647AE65FE3EB /* Pods_OnTheLineUITests.framework */; };
 		C92E22AB36F04D3FD31AD021 /* Pods_OnTheLineTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FA0FB7C4D36EA8C210F0CF8 /* Pods_OnTheLineTests.framework */; };
+		D71CB641234BCC60006821F3 /* AddFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71CB640234BCC60006821F3 /* AddFriendView.xib */; };
+		D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71CB645234BD11E006821F3 /* AddFriendView.swift */; };
 		D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */; };
 		D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFA2343C04A000D260C /* NewWagerVC.swift */; };
 		D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFC2343C064000D260C /* LedgerVC.swift */; };
@@ -56,6 +58,8 @@
 		8B99CB7AFFD16C18388F5445 /* Pods-OnTheLineUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLineUITests.release.xcconfig"; path = "Target Support Files/Pods-OnTheLineUITests/Pods-OnTheLineUITests.release.xcconfig"; sourceTree = "<group>"; };
 		B65939426AE2611A9884BC63 /* Pods-OnTheLine.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLine.release.xcconfig"; path = "Target Support Files/Pods-OnTheLine/Pods-OnTheLine.release.xcconfig"; sourceTree = "<group>"; };
 		BAC0956BD9C3A05330BC9CC4 /* Pods-OnTheLineUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheLineUITests.debug.xcconfig"; path = "Target Support Files/Pods-OnTheLineUITests/Pods-OnTheLineUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D71CB640234BCC60006821F3 /* AddFriendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendView.xib; sourceTree = "<group>"; };
+		D71CB645234BD11E006821F3 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D78C8AFA2343C04A000D260C /* NewWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWagerVC.swift; sourceTree = "<group>"; };
 		D78C8AFC2343C064000D260C /* LedgerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerVC.swift; sourceTree = "<group>"; };
@@ -137,6 +141,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D71CB642234BD055006821F3 /* TabVCs */ = {
+			isa = PBXGroup;
+			children = (
+				D71CB644234BD095006821F3 /* Profile */,
+				D78C8B0D2347B52E000D260C /* TabViewController.swift */,
+				D78C8AFE2343C07F000D260C /* ActivityVC.swift */,
+				D78C8B022343C0BB000D260C /* WagersVC.swift */,
+				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
+				D78C8AFC2343C064000D260C /* LedgerVC.swift */,
+			);
+			path = TabVCs;
+			sourceTree = "<group>";
+		};
+		D71CB643234BD079006821F3 /* StartVCs */ = {
+			isa = PBXGroup;
+			children = (
+				D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */,
+				D793024D227525AD001A3C2F /* StartViewController.swift */,
+				D7E4BD0722FA155000A4079A /* LoginViewController.swift */,
+				D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */,
+			);
+			path = StartVCs;
+			sourceTree = "<group>";
+		};
+		D71CB644234BD095006821F3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D78C8B072343C3F8000D260C /* ProfileVC.swift */,
+				D78C8B0F2347BD56000D260C /* AddFriendVC.swift */,
+				D71CB640234BCC60006821F3 /* AddFriendView.xib */,
+				D71CB645234BD11E006821F3 /* AddFriendView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		D7F6010722683BFC00F1AFA0 = {
 			isa = PBXGroup;
 			children = (
@@ -162,25 +201,16 @@
 		D7F6011222683BFD00F1AFA0 /* OnTheLine */ = {
 			isa = PBXGroup;
 			children = (
+				D71CB643234BD079006821F3 /* StartVCs */,
+				D71CB642234BD055006821F3 /* TabVCs */,
 				D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */,
-				D7F6011522683BFD00F1AFA0 /* FirstViewController.swift */,
-				D793024D227525AD001A3C2F /* StartViewController.swift */,
-				D7E4BD0722FA155000A4079A /* LoginViewController.swift */,
-				D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */,
-				D78C8B0D2347B52E000D260C /* TabViewController.swift */,
-				D78C8AFE2343C07F000D260C /* ActivityVC.swift */,
-				D78C8B022343C0BB000D260C /* WagersVC.swift */,
-				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
-				D78C8AFC2343C064000D260C /* LedgerVC.swift */,
-				D78C8B072343C3F8000D260C /* ProfileVC.swift */,
 				D7F6011922683BFD00F1AFA0 /* Main.storyboard */,
-				D78C8B0F2347BD56000D260C /* AddFriendVC.swift */,
-				D78C8B092343D63C000D260C /* Wager.swift */,
 				D7F6011E22683BFF00F1AFA0 /* LaunchScreen.storyboard */,
+				D78C8B092343D63C000D260C /* Wager.swift */,
+				D7F6011C22683BFF00F1AFA0 /* Assets.xcassets */,
 				D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */,
 				D7F6012122683BFF00F1AFA0 /* Info.plist */,
 				D7FE443022E28422008604A6 /* OnTheLine.entitlements */,
-				D7F6011C22683BFF00F1AFA0 /* Assets.xcassets */,
 			);
 			path = OnTheLine;
 			sourceTree = "<group>";
@@ -321,6 +351,7 @@
 				D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */,
 				D7F6011D22683BFF00F1AFA0 /* Assets.xcassets in Resources */,
 				D7F6011B22683BFD00F1AFA0 /* Main.storyboard in Resources */,
+				D71CB641234BCC60006821F3 /* AddFriendView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +537,7 @@
 				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
 				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,
+				D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */,
 				D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */,
 				D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */,
 				D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */,

@@ -22,7 +22,7 @@ class AddFriendVC: TabViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.searchedUsername.becomeFirstResponder()
     }
-    
+
     @IBAction func search(_ sender: Any) {
         self.fetchUser()
     }
@@ -61,7 +61,8 @@ class PersonView: UIView {
     }
     
     func setupViews() {
-        
+        self.addSubview(nameView)
+        self.addSubview(addFriend)
     }
     
     let nameView: UIView = {
@@ -71,7 +72,8 @@ class PersonView: UIView {
     
     let addFriend: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage: systemName: , for: .normal)
+        button.setTitle("Add Friend", for: .normal)
+        //button.setImage(UIImage: systemName: , for: .normal)
         return button
     }()
 
