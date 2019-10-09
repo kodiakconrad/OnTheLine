@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 class AddFriendVC: TabViewController {
@@ -32,10 +33,21 @@ class AddFriendVC: TabViewController {
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")
+                self.getView(document: document)
+                
             } else {
                 print("Document does not exist")
             }
+            
         }
+    }
+    
+    private func getView(document: DocumentSnapshot) {
+        var friend = AddFriendView(frame: CGRect.zero)
+        let data = document.data()
+        let fnData = data?["firstname"] as? [String: String]
+        let lnData = data?["lastname"] as? [String: String]
+        
     }
     
 }
@@ -50,31 +62,3 @@ class AddFriendVC: TabViewController {
         // Pass the selected object to the new view controller.
     }
     */
-class PersonView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
-        self.addSubview(nameView)
-        self.addSubview(addFriend)
-    }
-    
-    let nameView: UIView = {
-        let view = UIView(frame: CGRect(x:0, y:0, width:0, height:0))
-        return view
-    }()
-    
-    let addFriend: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Add Friend", for: .normal)
-        //button.setImage(UIImage: systemName: , for: .normal)
-        return button
-    }()
-
-}
