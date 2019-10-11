@@ -22,6 +22,7 @@
 		D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B0D2347B52E000D260C /* TabViewController.swift */; };
 		D78C8B102347BD56000D260C /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B0F2347BD56000D260C /* AddFriendVC.swift */; };
 		D793024E227525AD001A3C2F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D793024D227525AD001A3C2F /* StartViewController.swift */; };
+		D7D2192A234FB00800DFA76B /* AFView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D21929234FB00800DFA76B /* AFView.swift */; };
 		D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0722FA155000A4079A /* LoginViewController.swift */; };
 		D7E4BD0A22FA155E00A4079A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */; };
 		D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */; };
@@ -70,6 +71,7 @@
 		D78C8B0D2347B52E000D260C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		D78C8B0F2347BD56000D260C /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
 		D793024D227525AD001A3C2F /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		D7D21929234FB00800DFA76B /* AFView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFView.swift; sourceTree = "<group>"; };
 		D7E4BD0722FA155000A4079A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D7E4BD0922FA155E00A4079A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D7F6011022683BFD00F1AFA0 /* OnTheLine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheLine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				D78C8B0F2347BD56000D260C /* AddFriendVC.swift */,
 				D71CB640234BCC60006821F3 /* AddFriendView.xib */,
 				D71CB645234BD11E006821F3 /* AddFriendView.swift */,
+				D7D21929234FB00800DFA76B /* AFView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PureLayout/PureLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
@@ -475,6 +479,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PureLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
@@ -536,6 +541,7 @@
 				D78C8B0A2343D63C000D260C /* Wager.swift in Sources */,
 				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
+				D7D2192A234FB00800DFA76B /* AFView.swift in Sources */,
 				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,
 				D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */,
 				D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */,

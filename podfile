@@ -8,6 +8,7 @@ target 'OnTheLine' do
   pod 'Firebase/Database'
   pod 'Firebase/Firestore'
   pod 'FirebaseUI'
+  pod 'PureLayout'
   target 'OnTheLineTests' do
     inherit! :search_paths
     # Pods for testing

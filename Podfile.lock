@@ -176,6 +176,7 @@ PODS:
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.7.0)
+  - PureLayout (3.1.4)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -188,6 +189,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - FirebaseUI
+  - PureLayout
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -215,6 +217,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - PureLayout
     - SDWebImage
     - TwitterCore
     - TwitterKit
@@ -244,10 +247,11 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  PureLayout: f08c01b8dec00bb14a1fefa3de4c7d9c265df85e
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 3c786efde7be15212c1c91ef6872e67cf5c68b80
+PODFILE CHECKSUM: 1119eab83982743ae1bbe0ccf9e8f9fb9bcc7ff3
 
 COCOAPODS: 1.6.1
