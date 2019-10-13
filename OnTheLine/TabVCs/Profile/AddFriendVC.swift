@@ -11,22 +11,39 @@ import Firebase
 import PureLayout
 
 
-class AddFriendVC: TabViewController {
-
-    @IBOutlet weak var searchedUsername: UITextField!
-    var namelabel = UILabel.newAutoLayout()
-    var addButton = UIButton.newAutoLayout()
-    var profile = UIImageView.newAutoLayout()
+class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var userData: [String: Any]? = nil
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchedUsername: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        
+        print(userData.map(String.init(describing:)) ?? "nil")
+
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.searchedUsername.becomeFirstResponder()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FriendTableViewCell
+        if userData != nil {
+            let fn = userData!["firstname"]
+            let ln = userData!["lastname"]
+            cell.nameLabel.text = ("\(String(describing:fn)) + \(String(describing: ln))")
+            //cell.textLabel?.text = ("\(String(describing:fn)) + \(String(describing: ln))")
+        } else {
+            cell.nameLabel.text = "No users found"
+        }
+        return cell
     }
 
     @IBAction func search(_ sender: Any) {
@@ -38,35 +55,35 @@ class AddFriendVC: TabViewController {
         let userRef = db.collection("Users").document(searchedUsername.text!)
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-                self.getView(document: document)
-
+                self.userData = document.data()!
                 
+                //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                //print("Document data: \(dataDescription)")
+                self.getView(document: document)
             } else {
                 print("Document does not exist")
             }
-            
+            self.tableView.reloadData()
+           
         }
     }
     
     func getView(document: DocumentSnapshot) {
-        let friend = AddFriendView(frame: CGRect.zero)
-        let data = document.data()
-        print(type(of: data))
-        let fn = data!["firstname"]
-        let ln = data!["lastname"]
-        print(fn!)
-        print(ln!)
-        friend.nameLabel.text = "\(String(describing: fn)) + \(String(describing: ln))"
-        self.view.addSubview(friend)
-        
+        //let friend = AddFriendView(frame: CGRect.zero)
+        //let data = document.data()
 
+        //friend.nameLabel.text = "\(String(describing: fn)) + \(String(describing: ln))"
+        //self.view.addSubview(friend)
+        //friend.translatesAutoresizingMaskIntoConstraints = false
+        //friend.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1).isActive = true
+        //friend.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1)
     }
-    
-    func addNewView(to container: UIView) {
-        let newView = UIView()
-    }
+}
+
+class FriendTableViewCell: UITableViewCell {
+    @IBOutlet weak var profile: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var addButton: UIButton!
     
 }
     

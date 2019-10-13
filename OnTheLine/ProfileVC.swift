@@ -14,7 +14,7 @@ class ProfileVC: TabViewController {
         super.viewDidLoad()
 
     }
-    
+
     @IBAction func addFriend(_ sender: Any) {
         self.performSegue(withIdentifier: "addFriend", sender: self)
     }

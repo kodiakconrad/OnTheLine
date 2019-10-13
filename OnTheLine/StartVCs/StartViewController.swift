@@ -100,6 +100,7 @@ extension UIViewController: FUIAuthDelegate {
                     // log error
                     return
                 }
+                print(email)
                 //addUserToDatabase(uid: user.uid, email: email)
             }
             // need to check if this is a new user or not
