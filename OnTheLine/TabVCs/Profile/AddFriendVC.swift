@@ -14,6 +14,7 @@ import PureLayout
 class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     var userData: [String: Any]? = nil
+    var users = 0
 
     @IBOutlet weak var searchedUsername: UITextField!
     @IBOutlet weak var nameTable: UITableView!
@@ -30,7 +31,7 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return users
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,7 +39,7 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
         if userData != nil {
             let fn = userData!["firstname"]
             let ln = userData!["lastname"]
-            cell.nameLabel.text = ("\(String(describing:fn)) + \(String(describing: ln))")
+            cell.nameLabel.text = ("\(fn!) \(ln!)")
             //cell.textLabel?.text = ("\(String(describing:fn)) + \(String(describing: ln))")
         } else {
             cell.nameLabel.text = "No users found"
@@ -56,10 +57,11 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.userData = document.data()!
+                self.users = 1
                 
                 //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 //print("Document data: \(dataDescription)")
-                self.getView(document: document)
+                //self.getView(document: document)
             } else {
                 print("Document does not exist")
             }
@@ -67,23 +69,16 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
            
         }
     }
-    
-    func getView(document: DocumentSnapshot) {
-        //let friend = AddFriendView(frame: CGRect.zero)
-        //let data = document.data()
-
-        //friend.nameLabel.text = "\(String(describing: fn)) + \(String(describing: ln))"
-        //self.view.addSubview(friend)
-        //friend.translatesAutoresizingMaskIntoConstraints = false
-        //friend.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1).isActive = true
-        //friend.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1)
+    @IBAction func addFriend(_ sender: Any) {
+        
     }
+    
 }
 
 class FriendTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    
 }
     
 

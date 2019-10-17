@@ -517,11 +517,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0uD-fC-jw9">
-                                                    <rect key="frame" x="15" y="11" width="58" height="58"/>
+                                                    <rect key="frame" x="15" y="11" width="74" height="58"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-hQ-gWa">
-                                                    <rect key="frame" x="81" y="11" width="225" height="58"/>
+                                                    <rect key="frame" x="97" y="11" width="225" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="225" id="ScV-1X-GcI"/>
                                                         <constraint firstAttribute="height" constant="58" id="XZ0-07-bsb"/>
@@ -531,8 +531,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxw-o3-n8o">
-                                                    <rect key="frame" x="314" y="11" width="46" height="58"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <rect key="frame" x="330" y="11" width="30" height="58"/>
+                                                    <state key="normal" title="Add"/>
+                                                    <connections>
+                                                        <action selector="addFriend:" destination="6og-Li-odj" eventType="touchUpInside" id="6HN-Zh-AyU"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -553,6 +556,7 @@
                                         <color key="backgroundColor" red="0.6023298654" green="0.83773978309999997" blue="0.86662079020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="nameLabel" destination="Sob-hQ-gWa" id="MMf-8X-T15"/>
+                                            <outlet property="profileImage" destination="0uD-fC-jw9" id="dz5-mi-Usd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
