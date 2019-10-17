@@ -15,9 +15,9 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     
     var userData: [String: Any]? = nil
 
-    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchedUsername: UITextField!
-
+    @IBOutlet weak var nameTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(userData.map(String.init(describing:)) ?? "nil")
@@ -63,7 +63,7 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
             } else {
                 print("Document does not exist")
             }
-            self.tableView.reloadData()
+            self.nameTable.reloadData()
            
         }
     }
@@ -81,9 +81,8 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
 }
 
 class FriendTableViewCell: UITableViewCell {
-    @IBOutlet weak var profile: UIImageView!
+
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var addButton: UIButton!
     
 }
     

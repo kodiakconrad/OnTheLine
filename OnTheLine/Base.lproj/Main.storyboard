@@ -552,11 +552,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.6023298654" green="0.83773978309999997" blue="0.86662079020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <outlet property="addButton" destination="Qxw-o3-n8o" id="Koi-uf-u0c"/>
-                                            <outlet property="button" destination="Qxw-o3-n8o" id="lsb-gE-OWl"/>
-                                            <outlet property="image" destination="0uD-fC-jw9" id="QWX-My-DEv"/>
-                                            <outlet property="nameLabel" destination="Sob-hQ-gWa" id="eJ8-Me-cdz"/>
-                                            <outlet property="profile" destination="0uD-fC-jw9" id="9t6-CR-hFu"/>
+                                            <outlet property="nameLabel" destination="Sob-hQ-gWa" id="MMf-8X-T15"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -580,8 +576,8 @@
                         <viewLayoutGuide key="safeArea" id="GBZ-1G-6OZ"/>
                     </view>
                     <connections>
+                        <outlet property="nameTable" destination="rOy-HH-Suw" id="9Wi-Xj-S1i"/>
                         <outlet property="searchedUsername" destination="nxQ-bd-Lfo" id="i5y-1W-AWh"/>
-                        <outlet property="tableView" destination="rOy-HH-Suw" id="bhU-Ax-vVl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gw1-9U-lfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
