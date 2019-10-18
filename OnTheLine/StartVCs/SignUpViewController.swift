@@ -65,7 +65,7 @@ class SignUpViewController: UIViewController {
             print("User Not Created")
             return
         }
-        let userRef = db.collection("Users")
+        let userRef = db.collection("Usernames")
         let usernameRef = userRef.document(username.text!)
         usernameRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -82,17 +82,18 @@ class SignUpViewController: UIViewController {
     }
     
     private func addUserToDatabase() {
-        let userData: [String: Any] = ["firstname": firstname.text!,
-                                       "lastname": lastname.text!,
+        let userData: [String: Any] = ["name": firstname.text! + lastname.text!,
                                        "email": email.text!,
                                        "username": username.text!]
-        db.collection("Users").document(username.text!).setData(userData) { err in
+        let uid = Auth.auth().currentUser?.uid
+        db.collection("Usernames").document(username.text!).setData(["uid": uid!]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
             }
         }
+        db.collection("Users").document(uid!).setData(userData)
     }
     
     private func topmostController() -> UIViewController? {

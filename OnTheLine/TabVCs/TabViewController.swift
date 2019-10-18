@@ -15,6 +15,7 @@ class TabViewController: UIViewController {
     var db: Firestore!
     var handle: AuthStateDidChangeListenerHandle?
     var ref: DatabaseReference!
+    var uid: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class TabViewController: UIViewController {
         db = Firestore.firestore()
         ref = Database.database().reference()
         if Auth.auth().currentUser != nil {
+            self.uid = (Auth.auth().currentUser?.uid)!
             // User is signed in.
         } else {
             // No user is signed in.

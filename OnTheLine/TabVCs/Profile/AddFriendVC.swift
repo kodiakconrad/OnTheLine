@@ -14,7 +14,8 @@ import PureLayout
 class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     var userData: [String: Any]? = nil
-    var users = 0
+    var friendUid = ""
+    var numUsers = 0
 
     @IBOutlet weak var searchedUsername: UITextField!
     @IBOutlet weak var nameTable: UITableView!
@@ -31,15 +32,14 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users
+        return numUsers
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FriendTableViewCell
         if userData != nil {
-            let fn = userData!["firstname"]
-            let ln = userData!["lastname"]
-            cell.nameLabel.text = ("\(fn!) \(ln!)")
+            let name = userData!["name"]
+            cell.nameLabel.text = ("\(name!)")
             //cell.textLabel?.text = ("\(String(describing:fn)) + \(String(describing: ln))")
         } else {
             cell.nameLabel.text = "No users found"
@@ -53,24 +53,37 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func fetchUser()  {
-        let userRef = db.collection("Users").document(searchedUsername.text!)
+        let userRef = db.collection("Usernames").document(searchedUsername.text!)
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                self.userData = document.data()!
-                self.users = 1
+                //friendUid = document.data()!["uid"] as! String
+                let friendUid = document.data()!["uid"] as! String
+                self.friendUid = friendUid
+                let dataRef = self.db.collection("Users").document(friendUid)
+                dataRef.getDocument { (doc, er) in
+                    if let doc = doc, doc.exists {
+                        self.userData = doc.data()!
+                    }
+                }
+                self.numUsers = 1
                 
                 //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                //print("Document data: \(dataDescription)")
-                //self.getView(document: document)
+                //print("Document data: \(dataDescription)"
+                
             } else {
                 print("Document does not exist")
             }
             self.nameTable.reloadData()
-           
         }
     }
     @IBAction func addFriend(_ sender: Any) {
-        
+        //add friend to your databas
+        let uid = Auth.auth().currentUser?.uid
+        db.collection("Users").document(uid!).collection("friends").document(friendUid).setData(["status": "pending"])
+        //need to error check
+
+        //send alert to other person
+        db.collection("Users").document(friendUid).collection("friends").document(uid!).setData(["status": "pending"])
     }
     
 }
