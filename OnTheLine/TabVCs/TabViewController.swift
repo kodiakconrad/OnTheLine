@@ -32,6 +32,27 @@ class TabViewController: UIViewController {
         let (uid, email) = getUserInfo()
         print (uid, email)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        db.collection("Users").document(self.uid).collection("friends").addSnapshotListener { querySnapshot, error in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching collection: \(error!)")
+                return
+            }
+            snapshot.documentChanges.forEach { diff in
+                if (diff.type == .added) {
+                    print("New friend: \(diff.document.data())")
+                }
+                if (diff.type == .modified) {
+                    print("Modified friend: \(diff.document.data())")
+                }
+                if (diff.type == .removed) {
+                    print("Removed friend: \(diff.document.data())")
+                }
+            }
+            
+        }
+        
+    }
     
     private func getUserInfo() -> (String, String) {
         if let user = Auth.auth().currentUser {
