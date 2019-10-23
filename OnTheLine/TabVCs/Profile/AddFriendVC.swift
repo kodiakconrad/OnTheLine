@@ -78,12 +78,12 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     }
     @IBAction func addFriend(_ sender: Any) {
         //add friend to your databas
-        let uid = Auth.auth().currentUser?.uid
-        db.collection("Users").document(uid!).collection("friends").document(friendUid).setData(["status": "pending"])
+        //let uid = Auth.auth().currentUser?.uid
+        db.collection("Users").document(self.uid).collection("friends").document(friendUid).setData(["status": "pending"])
         //need to error check
 
         //send alert to other person
-        db.collection("Users").document(friendUid).collection("friends").document(uid!).setData(["status": "pending"])
+        db.collection("Users").document(friendUid).collection("friends").document(uid).setData(["status": "pending"] )
     }
     
 }

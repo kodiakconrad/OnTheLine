@@ -26,13 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheLine/TabVCs/Profile/AddFriendVC.swift"
-            timestampString = "593121778.814898"
+            timestampString = "593467321.344418"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
             endingLineNumber = "79"
-            landmarkName = "AddFriendVC"
-            landmarkType = "3">
+            landmarkName = "addFriend(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
