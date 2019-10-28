@@ -82,7 +82,7 @@ class SignUpViewController: UIViewController {
     }
     
     private func addUserToDatabase() {
-        let userData: [String: Any] = ["name": firstname.text! + lastname.text!,
+        let userData: [String: Any] = ["name": firstname.text! + " " + lastname.text!,
                                        "email": email.text!,
                                        "username": username.text!]
         let uid = Auth.auth().currentUser?.uid

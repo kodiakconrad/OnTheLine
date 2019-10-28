@@ -56,7 +56,6 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
         let userRef = db.collection("Usernames").document(searchedUsername.text!)
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                //friendUid = document.data()!["uid"] as! String
                 let friendUid = document.data()!["uid"] as! String
                 self.friendUid = friendUid
                 let dataRef = self.db.collection("Users").document(friendUid)
@@ -79,11 +78,24 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     @IBAction func addFriend(_ sender: Any) {
         //add friend to your databas
         //let uid = Auth.auth().currentUser?.uid
-        db.collection("Users").document(self.uid).collection("friends").document(friendUid).setData(["status": "pending"])
+        let name = userData!["name"]
+        let username = userData!["username"]
+        let friendData = ["name": name, "username": username, "status": "pending"]
+        db.collection("Users").document(self.uid).collection("friends").document(friendUid).setData(friendData as [String : Any])
         //need to error check
 
         //send alert to other person
-        db.collection("Users").document(friendUid).collection("friends").document(uid).setData(["status": "pending"] )
+        let myDataRef = db.collection("Users").document(self.uid)
+        myDataRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+               let myName = document.data()!["name"]!
+                let myUsername = document.data()!["username"]!
+                self.db.collection("Users").document(self.friendUid).collection("friends").document(self.uid).setData(["name": myName, "username": myUsername, "status": "pending"])
+            } else {
+                print("error, cant find current user")
+            }
+        }
+    
     }
     
 }

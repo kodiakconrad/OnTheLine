@@ -33,7 +33,8 @@ class TabViewController: UIViewController {
         print (uid, email)
     }
     override func viewDidAppear(_ animated: Bool) {
-        db.collection("Users").document(self.uid).collection("friends").addSnapshotListener { querySnapshot, error in
+        let friendsRef = db.collection("Users").document(self.uid).collection("friends")
+        friendsRef.addSnapshotListener { querySnapshot, error in
             guard let snapshot = querySnapshot else {
                 print("Error fetching collection: \(error!)")
                 return
@@ -48,9 +49,35 @@ class TabViewController: UIViewController {
                 if (diff.type == .removed) {
                     print("Removed friend: \(diff.document.data())")
                 }
+                let newFriends = friendsRef.whereField("status", isEqualTo: "pending")
+                newFriends.getDocuments() {
+                    (querySnapshot, err) in
+                    if let err = err {
+                        print("error getting docs: \(err)")
+                    } else {
+                        for doc in querySnapshot!.documents {
+                            print(doc)
+                            let alertController = UIAlertController(title: "New Friend", message: "from friend a", preferredStyle: .alert)
+                            let acceptAction = UIAlertAction(title: "Accept", style: .default , handler: { action in
+                                self.acceptFriend(friendRef: friendsRef)})
+                            let declineAction = UIAlertAction(title: "Decline", style: .cancel , handler: { action in
+                                self.declineFriend(friendRef: friendsRef)})
+                            alertController.addAction(acceptAction)
+                            alertController.addAction(declineAction)
+                            self.present(alertController, animated: true)
+                        }
+                    }
+                }
             }
-            
         }
+    }
+    
+    func acceptFriend(friendRef: CollectionReference) {
+        friendRef.setValue("Active", forKey: "status")
+        //is not working yet
+    }
+    
+    func declineFriend(friendRef: CollectionReference) {
         
     }
     
