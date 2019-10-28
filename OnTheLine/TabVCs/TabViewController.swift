@@ -56,12 +56,12 @@ class TabViewController: UIViewController {
                         print("error getting docs: \(err)")
                     } else {
                         for doc in querySnapshot!.documents {
-                            print(doc)
+                            let friendID = doc.documentID
                             let alertController = UIAlertController(title: "New Friend", message: "from friend a", preferredStyle: .alert)
                             let acceptAction = UIAlertAction(title: "Accept", style: .default , handler: { action in
-                                self.acceptFriend(friendRef: friendsRef)})
+                                self.acceptFriend(uid: friendID)})
                             let declineAction = UIAlertAction(title: "Decline", style: .cancel , handler: { action in
-                                self.declineFriend(friendRef: friendsRef)})
+                                self.declineFriend(uid: friendID)})
                             alertController.addAction(acceptAction)
                             alertController.addAction(declineAction)
                             self.present(alertController, animated: true)
@@ -72,16 +72,19 @@ class TabViewController: UIViewController {
         }
     }
     
-    func acceptFriend(friendRef: CollectionReference) {
-        friendRef.setValue("Active", forKey: "status")
-        //is not working yet
+    func acceptFriend(uid: String) {
+        let userRef = db.collection("Users")
+        userRef.document(self.uid).collection("friends").document(uid).setData(["status": "active"], mergeFields: ["status"])
+        userRef.document(uid).collection("friends").document(self.uid).setData(["status": "active"], mergeFields: ["status"])
     }
     
-    func declineFriend(friendRef: CollectionReference) {
-        
+    func declineFriend(uid: String) {
+        let userRef = db.collection("Users")
+        userRef.document(self.uid).collection("friends").document(uid).delete()
+        userRef.document(uid).collection("friends").document(self.uid).delete()
     }
     
-    private func getUserInfo() -> (String, String) {
+    func getUserInfo() -> (String, String) {
         if let user = Auth.auth().currentUser {
             let uid = user.uid
             let email = user.email!
