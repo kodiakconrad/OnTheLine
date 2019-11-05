@@ -14,8 +14,8 @@ enum EventType {
 
 class Event {
     var name: String!
-    var choiceA: String!
-    var choiceB: String!
+    var choiceA: String! // Right Side
+    var choiceB: String! // Left Side
 }
 
 class Game: Event {

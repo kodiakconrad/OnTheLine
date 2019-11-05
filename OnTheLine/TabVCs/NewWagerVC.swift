@@ -16,6 +16,14 @@ class NewWagerVC: TabViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = true
+        //need to create cancel button
+        
+    }
+
+    
 
     /*
     // MARK: - Navigation
