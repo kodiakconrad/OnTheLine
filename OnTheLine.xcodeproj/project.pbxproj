@@ -146,11 +146,11 @@
 		D71CB642234BD055006821F3 /* TabVCs */ = {
 			isa = PBXGroup;
 			children = (
+				D75DF5FC237202250057E143 /* New Wager */,
 				D71CB644234BD095006821F3 /* Profile */,
 				D78C8B0D2347B52E000D260C /* TabViewController.swift */,
 				D78C8AFE2343C07F000D260C /* ActivityVC.swift */,
 				D78C8B022343C0BB000D260C /* WagersVC.swift */,
-				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
 				D78C8AFC2343C064000D260C /* LedgerVC.swift */,
 			);
 			path = TabVCs;
@@ -177,6 +177,14 @@
 				D7D21929234FB00800DFA76B /* AFView.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D75DF5FC237202250057E143 /* New Wager */ = {
+			isa = PBXGroup;
+			children = (
+				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
+			);
+			path = "New Wager";
 			sourceTree = "<group>";
 		};
 		D7F6010722683BFC00F1AFA0 = {

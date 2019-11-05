@@ -30,8 +30,8 @@ class Game: Event {
         self.awayTeam = awayTeam
         self.time = time
         self.spread = spread
-        self.choiceA = homeTeam
-        self.choiceB = awayTeam
+        self.choiceA = awayTeam
+        self.choiceB = homeTeam
         
     }
     
