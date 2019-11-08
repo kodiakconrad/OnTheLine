@@ -13,21 +13,49 @@ class NewWagerVC: TabViewController {
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var statView: UIView!
     @IBOutlet weak var eventView: UIView!
+    @IBOutlet weak var wagerTypeControl: UISegmentedControl!
+    @IBOutlet weak var amount: UITextField!
     
-
+    @IBOutlet weak var gameAway: UITextField!
+    @IBOutlet weak var gameHome: UITextField!
+    @IBOutlet weak var gameSpread: UITextField!
+    @IBOutlet weak var gameDate: UITextField!
+    
+    private var datePicker: UIDatePicker?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //self.tabBarController?.tabBar.isHidden = true
-        //need to create cancel button
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .dateAndTime
+        print("hiiiiiiiiiiiiiiiiiiiiiii")
+        //print(gameDate.debugDescription)
+        //gameDate.inputView = datePicker
+    }
+    
 
+    @IBAction func pressedCreate(_ sender: Any) {
+        switch wagerTypeControl.selectedSegmentIndex {
+        case 0: // game
+            let away = gameAway.text!
+            let home = gameHome.text!
+            let name = "\(away) at \(home)"
+            
+            let spread = gameSpread.text!
+            //let wager = Game(name: <#T##String#>, homeTeam: <#T##String#>, awayTeam: <#T##String#>, time: <#T##Date#>, spread: <#T##Double#>)
+        case 1: // stat
+            print("stat")
+        case 2: // event
+            print("event")
+        default:
+            print("default")
+            break
+        }
+    }
+    
     @IBAction func switchViews(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
