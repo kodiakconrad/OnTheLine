@@ -10,16 +10,17 @@ import UIKit
 
 class NewWagerVC: TabViewController {
     
+    var event: Event = Event()
+    
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var statView: UIView!
     @IBOutlet weak var eventView: UIView!
     @IBOutlet weak var wagerTypeControl: UISegmentedControl!
     @IBOutlet weak var amount: UITextField!
     
-    @IBOutlet weak var gameAway: UITextField!
-    @IBOutlet weak var gameHome: UITextField!
-    @IBOutlet weak var gameSpread: UITextField!
-    @IBOutlet weak var gameDate: UITextField!
+    var gameContainer: CreateGameVC
+    
+
     
     private var datePicker: UIDatePicker?
     
@@ -36,22 +37,20 @@ class NewWagerVC: TabViewController {
         //gameDate.inputView = datePicker
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
 
     @IBAction func pressedCreate(_ sender: Any) {
         switch wagerTypeControl.selectedSegmentIndex {
         case 0: // game
-            let away = gameAway.text!
-            let home = gameHome.text!
-            let name = "\(away) at \(home)"
-            
-            let spread = gameSpread.text!
-            //let wager = Game(name: <#T##String#>, homeTeam: <#T##String#>, awayTeam: <#T##String#>, time: <#T##Date#>, spread: <#T##Double#>)
+            print("game")
+            gameContainer
         case 1: // stat
             print("stat")
         case 2: // event
             print("event")
         default:
-            print("default")
             break
         }
     }

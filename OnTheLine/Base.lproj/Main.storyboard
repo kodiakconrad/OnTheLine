@@ -440,7 +440,7 @@
                                     <action selector="switchViews:" destination="Nrd-yg-TZP" eventType="valueChanged" id="AXz-gh-rC9"/>
                                 </connections>
                             </segmentedControl>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mu-Pk-JLD">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mu-Pk-JLD" customClass="NewGameView" customModule="OnTheLine" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="201" width="375" height="348"/>
                                 <connections>
                                     <segue destination="t1o-Lj-EmH" kind="embed" id="cKK-ao-Btg"/>
@@ -717,10 +717,10 @@
             </objects>
             <point key="canvasLocation" x="3228" y="397"/>
         </scene>
-        <!--New WagerVC-->
+        <!--CreateGameVC-->
         <scene sceneID="xGu-kc-CSk">
             <objects>
-                <viewController id="t1o-Lj-EmH" customClass="NewWagerVC" customModule="OnTheLine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="t1o-Lj-EmH" userLabel="CreateGameVC" customClass="CreateGameVC" customModule="OnTheLine" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lLn-PK-nyk" userLabel="Game View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -813,10 +813,10 @@
                         <viewLayoutGuide key="safeArea" id="ziR-oP-UPE"/>
                     </view>
                     <connections>
-                        <outlet property="gameAway" destination="MYM-2X-fE7" id="iHb-q0-70m"/>
-                        <outlet property="gameDate" destination="XeA-um-Kla" id="dLK-cS-SXJ"/>
-                        <outlet property="gameHome" destination="8K0-dH-9si" id="TjJ-sb-dAx"/>
-                        <outlet property="gameSpread" destination="HyF-YR-yZu" id="QYR-wk-NrZ"/>
+                        <outlet property="awayTeam" destination="MYM-2X-fE7" id="vLh-Qs-5C7"/>
+                        <outlet property="date" destination="XeA-um-Kla" id="663-7I-Wwe"/>
+                        <outlet property="homeTeam" destination="8K0-dH-9si" id="W51-Hx-gdJ"/>
+                        <outlet property="spread" destination="HyF-YR-yZu" id="4Aq-pu-FAA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hv6-yU-fLo" userLabel="First Responder" sceneMemberID="firstResponder"/>

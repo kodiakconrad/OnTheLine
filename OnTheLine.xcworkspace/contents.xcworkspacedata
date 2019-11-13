@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:OnTheLine/TabVCs/New Wager/CreateGameVC.swift">
+   </FileRef>
+   <FileRef
       location = "group:OnTheLine.xcodeproj">
    </FileRef>
    <FileRef
