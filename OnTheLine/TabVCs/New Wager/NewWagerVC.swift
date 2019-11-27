@@ -18,7 +18,7 @@ class NewWagerVC: TabViewController {
     @IBOutlet weak var wagerTypeControl: UISegmentedControl!
     @IBOutlet weak var amount: UITextField!
     
-    //var gameContainer: CreateGameVC
+    var gameContainer: CreateGameVC?
     
 
     
@@ -30,9 +30,7 @@ class NewWagerVC: TabViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        datePicker = UIDatePicker()
-        datePicker?.datePickerMode = .dateAndTime
-        print("hiiiiiiiiiiiiiiiiiiiiiii")
+
         //print(gameDate.debugDescription)
         //gameDate.inputView = datePicker
     }
@@ -43,6 +41,7 @@ class NewWagerVC: TabViewController {
         switch wagerTypeControl.selectedSegmentIndex {
         case 0: // game
             print("game")
+            print()
             //gameContainer
         case 1: // stat
             print("stat")
@@ -70,6 +69,10 @@ class NewWagerVC: TabViewController {
         default:
             break;
         }
+    }
+    
+    func dataFromContainer(containerData : String){
+        print(containerData)
     }
     
 

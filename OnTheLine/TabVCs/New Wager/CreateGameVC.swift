@@ -17,7 +17,7 @@ class CreateGameVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let datePicker = UIDatePicker()
-        datePicker.datePickerMode = .dateAndTime
+        datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(CreateGameVC.dateChanged(datePicker:)), for: .valueChanged)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CreateGameVC.viewTapped(gestureRecognizer:)))
         view.addGestureRecognizer(tapGesture)
@@ -48,7 +48,31 @@ class CreateGameVC: UIViewController {
         dateFormattter.dateFormat = "MM/dd/yyyy"
         date.text = dateFormattter.string(from: datePicker.date)
         view.endEditing(true)
+        checkTextFields()
     }
+    
+    func checkTextFields() {
+        if ((awayTeam.text?.isEmpty)! || (homeTeam.text?.isEmpty)! || (spread.text?.isEmpty)! || (date.text?.isEmpty)!){
+            let alert = UIAlertController(title: "Missing text Fields", message: "please fill them out", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(defaultAction)
+            self.present(alert, animated: true, completion: nil)
+            
+        // need to do this for all
+        } else {
+            
+            // create event
+            print("not empty")
+        }
+        sendDataToVc(myString: date.text!)
+    }
+
+    
+    func sendDataToVc(myString : String) {
+        let Vc = parent as! NewWagerVC
+        Vc.dataFromContainer(containerData: myString)
+    }
+    
     
 
     /*
