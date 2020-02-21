@@ -61,7 +61,8 @@ class CreateGameVC: UIViewController {
         // need to do this for all
         } else {
             
-            // create event
+            //not sure what im supposed to be doing here again
+            //
             print("not empty")
         }
         sendDataToVc(myString: date.text!)
