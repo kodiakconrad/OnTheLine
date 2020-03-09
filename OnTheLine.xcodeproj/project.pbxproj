@@ -13,6 +13,7 @@
 		D71CB641234BCC60006821F3 /* AddFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71CB640234BCC60006821F3 /* AddFriendView.xib */; };
 		D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71CB645234BD11E006821F3 /* AddFriendView.swift */; };
 		D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */; };
+		D76332042417034700EA9E6A /* CreateGameDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76332032417034700EA9E6A /* CreateGameDelegate.swift */; };
 		D76E2BEB237CB38300AA526E /* CreateGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E2BEA237CB38300AA526E /* CreateGameVC.swift */; };
 		D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFA2343C04A000D260C /* NewWagerVC.swift */; };
 		D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFC2343C064000D260C /* LedgerVC.swift */; };
@@ -63,6 +64,7 @@
 		D71CB640234BCC60006821F3 /* AddFriendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendView.xib; sourceTree = "<group>"; };
 		D71CB645234BD11E006821F3 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D76332032417034700EA9E6A /* CreateGameDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateGameDelegate.swift; path = "/Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/New Wager/CreateGameDelegate.swift"; sourceTree = "<absolute>"; };
 		D76E2BEA237CB38300AA526E /* CreateGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameVC.swift; sourceTree = "<group>"; };
 		D78C8AFA2343C04A000D260C /* NewWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWagerVC.swift; sourceTree = "<group>"; };
 		D78C8AFC2343C064000D260C /* LedgerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerVC.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
 				D76E2BEA237CB38300AA526E /* CreateGameVC.swift */,
+				D76332032417034700EA9E6A /* CreateGameDelegate.swift */,
 			);
 			path = "New Wager";
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D78C8B0A2343D63C000D260C /* Wager.swift in Sources */,
+				D76332042417034700EA9E6A /* CreateGameDelegate.swift in Sources */,
 				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
 				D7D2192A234FB00800DFA76B /* AFView.swift in Sources */,

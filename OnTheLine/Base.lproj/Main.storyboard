@@ -720,7 +720,7 @@
         <!--CreateGameVC-->
         <scene sceneID="xGu-kc-CSk">
             <objects>
-                <viewController id="t1o-Lj-EmH" userLabel="CreateGameVC" customClass="CreateGameVC" customModule="OnTheLine" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newGame" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t1o-Lj-EmH" userLabel="CreateGameVC" customClass="CreateGameVC" customModule="OnTheLine" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lLn-PK-nyk" userLabel="Game View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="348"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

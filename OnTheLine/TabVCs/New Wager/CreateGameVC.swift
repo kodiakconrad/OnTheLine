@@ -7,15 +7,18 @@
 
 import UIKit
 
-class CreateGameVC: UIViewController {
+class CreateGameVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var awayTeam: UITextField!
     @IBOutlet weak var homeTeam: UITextField!
     @IBOutlet weak var spread: UITextField!
     @IBOutlet weak var date: UITextField!
     
+    var delegate: CreateGameDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        spread.delegate = self
         let datePicker = UIDatePicker()
         datePicker.datePickerMode = .date
         datePicker.addTarget(self, action: #selector(CreateGameVC.dateChanged(datePicker:)), for: .valueChanged)
@@ -25,28 +28,35 @@ class CreateGameVC: UIViewController {
         date.inputView = datePicker
         spread.keyboardType = .numberPad
 
-        // Do any additional setup after loading the view.
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+         return Double(string) != nil
+    }
+
     
-    
-    /*func createGame()  -> Game {
+    func createGame()  -> Game {
+        print("in create game")
         let away = awayTeam.text!
         let home = homeTeam.text!
         let title = "\(away) at \(home)"
-        //let time = date.date
-        let spread = self.spread.text!
-        //let game = Game(name: title, homeTeam: home, awayTeam: away, time: time, spread: spread)
-    }*/
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        let time = dateFormatter.date(from: date.text!)
+        let spread = Double(self.spread.text!)
+        let game = Game(name: title, homeTeam: home, awayTeam: away, time: time!, spread: spread!)
+        return game
+    }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
     @objc func dateChanged(datePicker: UIDatePicker) {
-        let dateFormattter = DateFormatter()
-        dateFormattter.dateFormat = "MM/dd/yyyy"
-        date.text = dateFormattter.string(from: datePicker.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        date.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
         checkTextFields()
     }
@@ -58,11 +68,15 @@ class CreateGameVC: UIViewController {
             alert.addAction(defaultAction)
             self.present(alert, animated: true, completion: nil)
             
-        // need to do this for all
-        } else {
+        // need to do this for all types of events
             
-            //not sure what im supposed to be doing here again
-            //
+        } else {
+            print("fields ok")
+            if let delegate = delegate {
+                let game = createGame()
+                delegate.dummyFunction(sentGame: game)
+            }
+            
             print("not empty")
         }
         sendDataToVc(myString: date.text!)

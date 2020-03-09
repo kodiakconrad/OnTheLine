@@ -8,9 +8,9 @@
 
 import UIKit
 
-class NewWagerVC: TabViewController {
-    
-    //var event: Event = Event()
+class NewWagerVC: TabViewController, CreateGameDelegate {
+
+    var event: Event? = nil
     
     @IBOutlet weak var gameView: UIView!
     @IBOutlet weak var statView: UIView!
@@ -20,28 +20,33 @@ class NewWagerVC: TabViewController {
     
     var gameContainer: CreateGameVC?
     
-
-    
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()   
         
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-
+        gameContainer?.delegate = self
         //print(gameDate.debugDescription)
-        //gameDate.inputView = datePicker
+
     }
     
-
+    func dummyFunction(sentGame: Game) {
+        print("dummy-funciton")
+        event = sentGame
+    }
+    
+    func dummyFunction(withParameter param: String) {
+        print("dummy-function-\(param)")
+    }
 
     @IBAction func pressedCreate(_ sender: Any) {
         switch wagerTypeControl.selectedSegmentIndex {
         case 0: // game
             print("game")
-            print()
+            
             //gameContainer
         case 1: // stat
             print("stat")
