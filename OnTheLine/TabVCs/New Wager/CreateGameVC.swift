@@ -72,7 +72,9 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
             
         } else {
             print("fields ok")
+            print(delegate)
             if let delegate = delegate {
+                print("delegate")
                 let game = createGame()
                 delegate.dummyFunction(sentGame: game)
             }
