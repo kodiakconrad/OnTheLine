@@ -5,6 +5,8 @@
 //  Created by Kodiak Conrad on 11/13/19.
 //
 
+// BOSS
+
 import UIKit
 
 class CreateGameVC: UIViewController, UITextFieldDelegate {
@@ -13,8 +15,9 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var homeTeam: UITextField!
     @IBOutlet weak var spread: UITextField!
     @IBOutlet weak var date: UITextField!
+    @IBOutlet weak var wagerValue: UITextField!
     
-    var delegate: CreateGameDelegate?
+    var delegate: CreateGameDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +36,11 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
          return Double(string) != nil
     }
-
+    
+    @IBAction func pressedCreate(_ sender: Any) {
+        delegate.dummyFunction(sentGame: createGame())
+    }
+    
     
     func createGame()  -> Game {
         print("in create game")
@@ -71,7 +78,6 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
         // need to do this for all types of events
             
         } else {
-            print("fields ok")
             print(delegate)
             if let delegate = delegate {
                 print("delegate")
@@ -81,25 +87,6 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
             
             print("not empty")
         }
-        sendDataToVc(myString: date.text!)
-    }
-
-    
-    func sendDataToVc(myString : String) {
-        let Vc = parent as! NewWagerVC
-        Vc.dataFromContainer(containerData: myString)
     }
     
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

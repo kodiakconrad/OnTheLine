@@ -10,5 +10,4 @@ import UIKit
 
 protocol CreateGameDelegate {
     func dummyFunction(sentGame: Game)
-    func dummyFunction(withParameter param: String)
 }
