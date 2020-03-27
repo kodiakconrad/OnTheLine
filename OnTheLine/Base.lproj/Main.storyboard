@@ -573,11 +573,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0uD-fC-jw9">
-                                                    <rect key="frame" x="15" y="11" width="113" height="58"/>
+                                                    <rect key="frame" x="15" y="11" width="74" height="58"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sob-hQ-gWa">
-                                                    <rect key="frame" x="136" y="11" width="225" height="58"/>
+                                                    <rect key="frame" x="97" y="11" width="225" height="58"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="225" id="ScV-1X-GcI"/>
                                                         <constraint firstAttribute="height" constant="58" id="XZ0-07-bsb"/>
@@ -587,7 +587,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxw-o3-n8o">
-                                                    <rect key="frame" x="369" y="11" width="30" height="58"/>
+                                                    <rect key="frame" x="330" y="11" width="30" height="58"/>
                                                     <state key="normal" title="Add"/>
                                                     <connections>
                                                         <action selector="addFriend:" destination="6og-Li-odj" eventType="touchUpInside" id="6HN-Zh-AyU"/>
@@ -767,7 +767,6 @@
                             <constraint firstItem="XeA-um-Kla" firstAttribute="top" secondItem="HyF-YR-yZu" secondAttribute="bottom" constant="30" id="QYH-Vl-cRD"/>
                             <constraint firstItem="MYM-2X-fE7" firstAttribute="top" secondItem="ziR-oP-UPE" secondAttribute="top" constant="30" id="S9M-BU-Oob"/>
                             <constraint firstItem="CHg-qG-GPW" firstAttribute="leading" secondItem="bA9-aV-BLW" secondAttribute="trailing" constant="20" id="SYm-Zh-eQC"/>
-                            <constraint firstItem="K13-e6-XPx" firstAttribute="top" secondItem="lLn-PK-nyk" secondAttribute="topMargin" constant="80" id="WQQ-eI-d69"/>
                             <constraint firstItem="CHg-qG-GPW" firstAttribute="top" secondItem="XeA-um-Kla" secondAttribute="bottom" constant="76" id="WQr-2g-coC"/>
                             <constraint firstItem="3QQ-tt-OmV" firstAttribute="top" secondItem="mnM-18-PLS" secondAttribute="bottom" constant="30" id="WR1-hg-V1v"/>
                             <constraint firstAttribute="trailing" secondItem="HyF-YR-yZu" secondAttribute="trailing" constant="20" id="XTi-nP-C3V"/>
@@ -802,7 +801,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hv6-yU-fLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516.8" y="1152.7093596059115"/>
+            <point key="canvasLocation" x="1538" y="1152"/>
         </scene>
         <!--New WagerVC-->
         <scene sceneID="sRL-6G-Jmg">
@@ -817,7 +816,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HwN-Z5-CGf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2321" y="1155"/>
+            <point key="canvasLocation" x="2268" y="1154"/>
         </scene>
         <!--New WagerVC-->
         <scene sceneID="g6C-Ir-egC">
@@ -855,7 +854,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="3iD-ws-leR"/>
-        <segue reference="nqL-iZ-vtM"/>
+        <segue reference="FIz-0l-dc7"/>
+        <segue reference="Jvf-lK-cyc"/>
     </inferredMetricsTieBreakers>
 </document>

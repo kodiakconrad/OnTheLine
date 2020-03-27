@@ -10,7 +10,7 @@
 
 import UIKit
 
-class NewWagerVC: TabViewController, CreateGameDelegate {
+class NewWagerVC: TabViewController {
 
     var event: Event? = nil
     
@@ -43,10 +43,10 @@ class NewWagerVC: TabViewController, CreateGameDelegate {
     @IBAction func switchViews(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            gameView.alpha = 1
-            gameView.
-            statView.alpha = 0
-            eventView.alpha = 0
+            let 
+            //gameView.alpha = 1
+            //statView.alpha = 0
+            //eventView.alpha = 0
             //print(gameDate.debugDescription)
         case 1:
             statView.alpha = 1
