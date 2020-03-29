@@ -20,7 +20,7 @@ class NewWagerVC: TabViewController {
     @IBOutlet weak var wagerTypeControl: UISegmentedControl!
     
     var gameContainer: CreateGameVC?
-    gameContainer?.delegate = self
+    //gameContainer?.delegate = self
     
     private var datePicker: UIDatePicker?
     
@@ -41,17 +41,23 @@ class NewWagerVC: TabViewController {
     
     
     @IBAction func switchViews(_ sender: UISegmentedControl) {
+        
         switch sender.selectedSegmentIndex {
         case 0:
-            let 
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let newGameVC = storyboard.instantiateViewController(withIdentifier: "newGame") as! CreateGameVC
+            var frame = newGameVC.view.frame
+            newGameVC.view.frame = CGRect()
+            self.present(newGameVC, animated: true, completion: nil)
             //gameView.alpha = 1
             //statView.alpha = 0
             //eventView.alpha = 0
             //print(gameDate.debugDescription)
         case 1:
-            statView.alpha = 1
-            gameView.alpha = 0
-            eventView.alpha = 0
+            //statView.alpha = 1
+            //gameView.alpha = 0
+            //eventView.alpha = 0
+            print("hi")
         case 2:
             eventView.alpha = 1
             gameView.alpha = 0
