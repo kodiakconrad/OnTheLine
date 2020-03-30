@@ -9,13 +9,14 @@
 // INTERN
 
 import UIKit
+import Firebase
 
 class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var friendTable: UITableView!
     @IBOutlet weak var searchedName: UITextField!
     var event: Event? = nil
-    var numUsers = 10
+    var numFriends = 0
     
     var gameContainer: CreateGameVC?
     //gameContainer?.delegate = self
@@ -24,23 +25,40 @@ class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        getFriends()
         self.searchedName.becomeFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return numFriends
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cel = tableView.dequeueReusableCell(withIdentifier: "friend", for: indexPath)
-        return cel
+        let cell = UITableViewCell.init(style: .subtitle, reuseIdentifier: "friendo")
+        cell.textLabel?.text = "friend"
+        cell.detailTextLabel?.text = "username"
+        cell.imageView?.image = UIImage.init(named: "first")
+        return cell
     }
     
+    func getFriends() {
+        let friendsRef = db.collection("Users").document(self.uid).collection("friends")
+        friendsRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.numFriends += 1
+                    print("\(document.documentID) => \(document.data())")
+                    self.friendTable.reloadData()
+                }
+            }
+        }
+    }
     func dummyFunction(sentGame: Game) {
         print("dummy-funciton")
         event = sentGame
@@ -48,9 +66,6 @@ class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate 
     }
 }
 
-class friendCell {
-    
-}
 
 // for presenting new game VC
 /*
