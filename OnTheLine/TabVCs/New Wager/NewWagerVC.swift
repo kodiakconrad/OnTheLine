@@ -10,14 +10,12 @@
 
 import UIKit
 
-class NewWagerVC: TabViewController {
+class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var friendTable: UITableView!
+    @IBOutlet weak var searchedName: UITextField!
     var event: Event? = nil
-    
-    @IBOutlet weak var gameView: UIView!
-    @IBOutlet weak var statView: UIView!
-    @IBOutlet weak var eventView: UIView!
-    @IBOutlet weak var wagerTypeControl: UISegmentedControl!
+    var numUsers = 10
     
     var gameContainer: CreateGameVC?
     //gameContainer?.delegate = self
@@ -25,12 +23,22 @@ class NewWagerVC: TabViewController {
     private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
-        super.viewDidLoad()   
+        super.viewDidLoad()
         
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-
+        self.searchedName.becomeFirstResponder()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cel = tableView.dequeueReusableCell(withIdentifier: "friend", for: indexPath)
+        return cel
     }
     
     func dummyFunction(sentGame: Game) {
@@ -38,32 +46,18 @@ class NewWagerVC: TabViewController {
         event = sentGame
         print(event?.choiceA ?? "no value")
     }
-    
-    
-    @IBAction func switchViews(_ sender: UISegmentedControl) {
-        
-        switch sender.selectedSegmentIndex {
-        case 0:
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let newGameVC = storyboard.instantiateViewController(withIdentifier: "newGame") as! CreateGameVC
-            var frame = newGameVC.view.frame
-            newGameVC.view.frame = CGRect()
-            self.present(newGameVC, animated: true, completion: nil)
-            //gameView.alpha = 1
-            //statView.alpha = 0
-            //eventView.alpha = 0
-            //print(gameDate.debugDescription)
-        case 1:
-            //statView.alpha = 1
-            //gameView.alpha = 0
-            //eventView.alpha = 0
-            print("hi")
-        case 2:
-            eventView.alpha = 1
-            gameView.alpha = 0
-            statView.alpha = 0
-        default:
-            break;
-        }
-    }
 }
+
+class friendCell {
+    
+}
+
+// for presenting new game VC
+/*
+ 
+ let storyboard = UIStoryboard(name: "Main", bundle: nil)
+ let newGameVC = storyboard.instantiateViewController(withIdentifier: "newGame") as! CreateGameVC
+ newGameVC.view.frame = CGRect()
+ self.present(newGameVC, animated: true, completion: nil)
+ 
+ */

@@ -8,6 +8,7 @@
 // BOSS
 
 import UIKit
+import Foundation
 
 class CreateGameVC: UIViewController, UITextFieldDelegate {
 
@@ -89,4 +90,8 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
         }
     }
     
+}
+
+protocol CreateGameDelegate {
+    func dummyFunction(sentGame: Game)
 }

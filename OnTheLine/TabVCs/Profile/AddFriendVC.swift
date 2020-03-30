@@ -49,7 +49,6 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
 
     @IBAction func search(_ sender: Any) {
         self.fetchUser()
-        
     }
     
     func fetchUser()  {
@@ -71,12 +70,13 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
                 
             } else {
                 print("Document does not exist")
+                self.numUsers = 0
             }
             self.nameTable.reloadData()
         }
     }
     @IBAction func addFriend(_ sender: Any) {
-        //add friend to your databas
+        //add friend to your database
         //let uid = Auth.auth().currentUser?.uid
         let name = userData!["name"]
         let username = userData!["username"]
