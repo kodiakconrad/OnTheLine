@@ -14,7 +14,7 @@ import PureLayout
 class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     var userData: [String: Any]? = nil
-    var friendUid = ""
+    var friendUid:String  = ""
     var numUsers = 0
 
     @IBOutlet weak var searchedUsername: UITextField!
@@ -80,7 +80,7 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
         //let uid = Auth.auth().currentUser?.uid
         let name = userData!["name"]
         let username = userData!["username"]
-        let friendData = ["name": name, "username": username, "status": "pending"]
+        let friendData = ["name": name, "username": username, "status": "sent"]
         db.collection("Users").document(self.uid).collection("friends").document(friendUid).setData(friendData as [String : Any])
         //need to error check
 

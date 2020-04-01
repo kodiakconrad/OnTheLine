@@ -14,6 +14,7 @@
 		D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71CB645234BD11E006821F3 /* AddFriendView.swift */; };
 		D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */; };
 		D76E2BEB237CB38300AA526E /* CreateGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E2BEA237CB38300AA526E /* CreateGameVC.swift */; };
+		D78AE9292433E1A600B5D97E /* EventTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78AE9282433E1A600B5D97E /* EventTypeVC.swift */; };
 		D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFA2343C04A000D260C /* NewWagerVC.swift */; };
 		D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFC2343C064000D260C /* LedgerVC.swift */; };
 		D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFE2343C07F000D260C /* ActivityVC.swift */; };
@@ -64,6 +65,7 @@
 		D71CB645234BD11E006821F3 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
 		D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D76E2BEA237CB38300AA526E /* CreateGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameVC.swift; sourceTree = "<group>"; };
+		D78AE9282433E1A600B5D97E /* EventTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypeVC.swift; sourceTree = "<group>"; };
 		D78C8AFA2343C04A000D260C /* NewWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWagerVC.swift; sourceTree = "<group>"; };
 		D78C8AFC2343C064000D260C /* LedgerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerVC.swift; sourceTree = "<group>"; };
 		D78C8AFE2343C07F000D260C /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityVC.swift; path = /Users/Kodiak/Apps/OnTheLine/OnTheLine/ActivityVC.swift; sourceTree = "<absolute>"; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				D78C8AFA2343C04A000D260C /* NewWagerVC.swift */,
+				D78AE9282433E1A600B5D97E /* EventTypeVC.swift */,
 				D76E2BEA237CB38300AA526E /* CreateGameVC.swift */,
 			);
 			path = "New Wager";
@@ -552,6 +555,7 @@
 				D78C8B0A2343D63C000D260C /* Wager.swift in Sources */,
 				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
+				D78AE9292433E1A600B5D97E /* EventTypeVC.swift in Sources */,
 				D7D2192A234FB00800DFA76B /* AFView.swift in Sources */,
 				D76E2BEB237CB38300AA526E /* CreateGameVC.swift in Sources */,
 				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,

@@ -10,7 +10,7 @@
 import UIKit
 import Foundation
 
-class CreateGameVC: UIViewController, UITextFieldDelegate {
+class CreateGameVC: EventTypeVC, UITextFieldDelegate {
 
     @IBOutlet weak var awayTeam: UITextField!
     @IBOutlet weak var homeTeam: UITextField!
@@ -18,7 +18,6 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var date: UITextField!
     @IBOutlet weak var wagerValue: UITextField!
     
-    var delegate: CreateGameDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,20 +30,14 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
         
         date.inputView = datePicker
         spread.keyboardType = .numberPad
-
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
          return Double(string) != nil
     }
     
-    @IBAction func pressedCreate(_ sender: Any) {
-        delegate.dummyFunction(sentGame: createGame())
-    }
-    
-    
     func createGame()  -> Game {
-        print("in create game")
+        checkTextFields()
         let away = awayTeam.text!
         let home = homeTeam.text!
         let title = "\(away) at \(home)"
@@ -66,32 +59,27 @@ class CreateGameVC: UIViewController, UITextFieldDelegate {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         date.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
+
+    }
+    @IBAction func pressedCreate(_ sender: Any) {
         checkTextFields()
+        let game = createGame()
+        game.toString()
+        // now time to actually update database 
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func checkTextFields() {
-        if ((awayTeam.text?.isEmpty)! || (homeTeam.text?.isEmpty)! || (spread.text?.isEmpty)! || (date.text?.isEmpty)!){
+        if ((awayTeam.text?.isEmpty)! || (homeTeam.text?.isEmpty)! || (spread.text?.isEmpty)! || (date.text?.isEmpty)!) || (wagerValue.text?.isEmpty)! { // still need to check values are correct type
             let alert = UIAlertController(title: "Missing text Fields", message: "please fill them out", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alert.addAction(defaultAction)
             self.present(alert, animated: true, completion: nil)
             
-        // need to do this for all types of events
             
         } else {
-            print(delegate)
-            if let delegate = delegate {
-                print("delegate")
-                let game = createGame()
-                delegate.dummyFunction(sentGame: game)
-            }
-            
-            print("not empty")
+            print("good to go")
         }
     }
     
-}
-
-protocol CreateGameDelegate {
-    func dummyFunction(sentGame: Game)
 }

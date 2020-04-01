@@ -42,6 +42,10 @@ class Game: Event {
     func setSpread(spread: Double) {
         self.spread = spread
     }
+    
+    func toString() { // prototype
+        print("\(self.awayTeam!) at \(self.homeTeam!) (\(self.spread!))")
+    }
 }
 
 class Statistic: Event {

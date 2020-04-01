@@ -29,8 +29,7 @@ class TabViewController: UIViewController {
         } else {
             // No user is signed in.
         }
-        let (uid, email) = getUserInfo()
-        print (uid, email)
+        let ( _, _) = getUserInfo()
     }
     
     func getUserInfo() -> (String, String) {
