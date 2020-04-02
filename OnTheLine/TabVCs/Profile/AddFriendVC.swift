@@ -81,16 +81,16 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
         let name = userData!["name"]
         let username = userData!["username"]
         let friendData = ["name": name, "username": username, "status": "sent"]
-        db.collection("Users").document(self.uid).collection("friends").document(friendUid).setData(friendData as [String : Any])
+        db.collection(USERS).document(self.uid).collection("friends").document(friendUid).setData(friendData as [String : Any])
         //need to error check
 
         //send alert to other person
-        let myDataRef = db.collection("Users").document(self.uid)
+        let myDataRef = db.collection(USERS).document(self.uid)
         myDataRef.getDocument { (document, error) in
             if let document = document, document.exists {
                let myName = document.data()!["name"]!
                 let myUsername = document.data()!["username"]!
-                self.db.collection("Users").document(self.friendUid).collection("friends").document(self.uid).setData(["name": myName, "username": myUsername, "status": "pending"])
+                self.db.collection(self.USERS).document(self.friendUid).collection("friends").document(self.uid).setData(["name": myName, "username": myUsername, "status": "pending"])
             } else {
                 print("error, cant find current user")
             }

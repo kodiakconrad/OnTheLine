@@ -55,7 +55,7 @@ class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate 
     // push event type VC with opponent info when their name is tapped
     @objc func tappedRow(sender: OpponentTapGestureRecognizer) {
         print("in tappedRow")
-        let userRef = db.collection("Usernames").document(sender.opponentUsername!)
+        let userRef = db.collection(USERNAMES).document(sender.opponentUsername!)
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let friendUid = document.data()!["uid"] as! String
@@ -74,7 +74,7 @@ class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate 
     
     //initial call to populate friends table
     func getFriends() {
-        let friendsRef = db.collection("Users").document(self.uid).collection("friends").whereField("status", isEqualTo: "active")
+        let friendsRef = db.collection(USERS).document(self.uid).collection("friends").whereField("status", isEqualTo: "active")
         friendsRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -93,13 +93,8 @@ class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate 
             }
         }
     }
-    
-    func dummyFunction(sentGame: Game) {
-        print("dummy-funciton")
-        event = sentGame
-        print(event?.choiceA ?? "no value")
-    }
 }
+    
 
 //custom gesture recognizer that includes username where it came from
 class OpponentTapGestureRecognizer: UITapGestureRecognizer {

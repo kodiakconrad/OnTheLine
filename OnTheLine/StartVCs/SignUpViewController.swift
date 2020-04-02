@@ -94,6 +94,16 @@ class SignUpViewController: UIViewController {
             }
         }
         db.collection("Users").document(uid!).setData(userData)
+        var ledgerData = [String: Array<String>]()
+        ledgerData["Active"] = []
+        ledgerData["Pending"] = []
+        db.collection("Ledger").document(uid!).setData(ledgerData) { err in
+            if let err = err {
+                print("Error adding document: \(err)")
+            } else {
+                print("User added to Ledger")
+            }
+        }
     }
     
     private func topmostController() -> UIViewController? {

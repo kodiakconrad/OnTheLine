@@ -21,22 +21,22 @@ class Event {
 class Game: Event {
     var homeTeam: String!
     var awayTeam: String!
-    var time: Date!
+    var timestamp: Date!
     var spread: Double! // always with respect to home team
-    init(name: String, homeTeam: String, awayTeam: String, time: Date, spread: Double) {
+    init(name: String, homeTeam: String, awayTeam: String, timestamp: Date, spread: Double) {
         super.init()
         self.name = name
         self.homeTeam = homeTeam
         self.awayTeam = awayTeam
-        self.time = time
+        self.timestamp = timestamp
         self.spread = spread
         self.choiceA = awayTeam
         self.choiceB = homeTeam
         
     }
     
-    func setTime(time: Date) {
-        self.time = time
+    func setTime(timestamp: Date) {
+        self.timestamp = timestamp
     }
     
     func setSpread(spread: Double) {
@@ -44,7 +44,17 @@ class Game: Event {
     }
     
     func toString() { // prototype
-        print("\(self.awayTeam!) at \(self.homeTeam!) (\(self.spread!))")
+        print("\(self.awayTeam!) at \(self.homeTeam!) (\(self.spread!)) at \(self.timestamp!)")
+    }
+    
+    func getData() -> [String: Any] {
+        var data = [String: Any]()
+        data["EventType"] = "Game"
+        data["Away"] = self.awayTeam!
+        data["Home"] = self.homeTeam!
+        data["Spread"] = self.spread!
+        data["Timestamp"] = self.timestamp!
+        return data
     }
 }
 
@@ -89,18 +99,21 @@ class Outcome: Event {
     }
 }
 
+/*   Deprecated for now, will revisit
+ 
 enum Status {
-    case pending, active, completed
+    case sent, pending, active, completed
 }
+*/
 
 class Wager {
     var wagerID: String!
     var event: Event
     var users: [String]
     var value: Int
-    var status: Status
+    var status: String
     
-    init(id: String, event: Event, u1: String, u2: String, value: Int, status: Status) {
+    init(id: String, event: Event, u1: String, u2: String, value: Int, status: String) {
         self.wagerID = id
         self.event = event
         self.users = [u1, u2]

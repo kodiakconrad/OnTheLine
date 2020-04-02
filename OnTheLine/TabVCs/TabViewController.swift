@@ -10,12 +10,18 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseCore
+import FirebaseFirestore
 
 class TabViewController: UIViewController {
     var db: Firestore!
     var handle: AuthStateDidChangeListenerHandle?
     var ref: DatabaseReference!
     var uid: String = ""
+    let EVENTS = "Events"
+    let WAGERS = "Wagers"
+    let USERS = "Users"
+    let LEDGER = "Ledger"
+    let USERNAMES = "Usernames"
 
     override func viewDidLoad() {
         super.viewDidLoad()
