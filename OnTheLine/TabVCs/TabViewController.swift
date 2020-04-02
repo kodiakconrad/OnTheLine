@@ -28,12 +28,13 @@ class TabViewController: UIViewController {
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        ref = Database.database().reference()
         if Auth.auth().currentUser != nil {
             self.uid = (Auth.auth().currentUser?.uid)!
             // User is signed in.
         } else {
+            print("no user signed in")
             // No user is signed in.
+            self.performSegue(withIdentifier: "goToLogin", sender: self)
         }
         let ( _, _) = getUserInfo()
     }

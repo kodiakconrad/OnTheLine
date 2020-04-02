@@ -21,8 +21,10 @@ class NewWagerVC: TabViewController, UITableViewDataSource, UITableViewDelegate 
     var opponentUID: String = ""
     
     override func viewDidLoad() {
+        print("view did load called")
         super.viewDidLoad()
         self.getFriends()
+        print("view loaded")
     }
     
     override func viewDidAppear(_ animated: Bool) {

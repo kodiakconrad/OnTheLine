@@ -9,6 +9,7 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 class CreateGameVC: EventTypeVC, UITextFieldDelegate {
 
@@ -29,7 +30,7 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
         view.addGestureRecognizer(tapGesture)
         
         date.inputView = datePicker
-        spread.keyboardType = .numberPad
+        spread.keyboardType = .numbersAndPunctuation
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -109,7 +110,7 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
         let userRef = db.collection(LEDGER).document(self.uid)
         print("\(LEDGER) and \(self.uid)")
         userRef.updateData([
-            "Pending": FieldValue.arrayUnion([wagerID!])
+            "Pending": FieldValue.arrayUnion([wagerID])
                 ])
 
         

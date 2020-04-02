@@ -15,6 +15,7 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Start VC loaded")
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
@@ -24,66 +25,46 @@ class StartViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            self.performSegue(withIdentifier: "goHome", sender: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initial = storyboard.instantiateInitialViewController()
+            UIApplication.shared.keyWindow?.rootViewController = initial
         }
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
-       /*
         // Get default AuthUI object
 
-        let authUI = FUIAuth.defaultAuthUI()
-        guard authUI != nil else {
-            return
-        }
-        authUI?.delegate = self         //Set ourselves as delegate
-        let providers :[FUIAuthProvider] = [
-                        FUIEmailAuth(),
-                        FUIGoogleAuth(),
-                        FUIFacebookAuth(),]
-        authUI?.providers = providers
-        
-        // Get a reference with auth UI view controller
-        let authViewController = authUI!.authViewController()
-        
-        //Show it
-        present(authViewController, animated: true, completion: nil)
- */
-        
     }
 
     @IBAction func signupTapped(_ sender: Any) {
-        
+        // deprecated for me
     }
-    
-    /*
-     private func addUserToDatabase(uid: String, email: String) {
-        let userData = ["firstname": uid,
-                        "email": email]
-        var docRef: DocumentReference? = nil
-        docRef = db.collection("Users").addDocument(data: userData) { err in
-            if let err = err {
-                print("Error adding document: \(err)")
-            } else {
-                print("Document added with ID: \(docRef!.documentID)")
-            }
-        }
-        
-    }
-    */
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+/*
+   Deprecated for now, opted for own sign up/sign in
+ 
+ 
+// previously in logginTapped
+ 
+ let authUI = FUIAuth.defaultAuthUI()
+ guard authUI != nil else {
+     return
+ }
+ authUI?.delegate = self         //Set ourselves as delegate
+ let providers :[FUIAuthProvider] = [
+                 FUIEmailAuth(),
+                 FUIGoogleAuth(),
+                 FUIFacebookAuth(),]
+ authUI?.providers = providers
+ 
+ // Get a reference with auth UI view controller
+ let authViewController = authUI!.authViewController()
+ 
+ //Show it
+ present(authViewController, animated: true, completion: nil)
+ 
 
 extension UIViewController: FUIAuthDelegate {
     
@@ -96,12 +77,15 @@ extension UIViewController: FUIAuthDelegate {
         // access uid and email for adding ot database
         if let user = authDataResult?.user {
             if user.metadata.creationDate == user.metadata.lastSignInDate {
+                print("creation date is last sign in date")
                 guard let email = user.email else {
                     // log error
+                    print("email != user.email")
                     return
                 }
                 print(email)
                 //addUserToDatabase(uid: user.uid, email: email)
+                //addUserToLedger
             }
             // need to check if this is a new user or not
             // addUserToDatabase(uid: user_id, email: email)
@@ -109,9 +93,15 @@ extension UIViewController: FUIAuthDelegate {
             // log error
             return
         }
-        
-        performSegue(withIdentifier: "goHome", sender: self)
+        print("in delegate block")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initial = storyboard.instantiateInitialViewController()
+        UIApplication.shared.keyWindow?.rootViewController = initial
     }
-    
-    
 }
+
+protocol addUserDelegate {
+    func addUserToDB(user: User)
+}
+ 
+*/
