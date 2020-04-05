@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="N4m-34-w3r" customClass="StartViewController" customModule="OnTheLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wu0-lL-EcG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Wa8-da-80k">
-                                <rect key="frame" x="87.666666666666686" y="328.33333333333331" width="200" height="101.33333333333331"/>
+                                <rect key="frame" x="87.666666666666686" y="355.33333333333331" width="200" height="101.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OnTheLine" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JE-OC-lAw">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="20.333333333333332"/>
@@ -247,62 +247,58 @@
                                 <rect key="frame" x="10" y="10" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="I6k-Ee-qow">
-                                <rect key="frame" x="78" y="211.33333333333334" width="219" height="335.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="w7O-PY-ogX">
+                                <rect key="frame" x="78" y="272.66666666666669" width="219" height="213"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-df-35O">
-                                        <rect key="frame" x="67.666666666666657" y="0.0" width="84" height="38.333333333333336"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJb-PZ-Qxd">
+                                        <rect key="frame" x="0.0" y="0.0" width="219" height="38.333333333333336"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejv-3T-ttD">
-                                        <rect key="frame" x="89" y="68.333333333333343" width="41" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nk8-hD-zyP">
-                                        <rect key="frame" x="0.0" y="118.66666666666666" width="219" height="34"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxR-1F-aEZ">
+                                        <rect key="frame" x="0.0" y="44.333333333333314" width="219" height="20.333333333333329"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="219" id="R8c-Ll-scA"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="RSj-Gg-Ldq"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSS-nZ-hoF">
-                                        <rect key="frame" x="0.0" y="182.66666666666666" width="219" height="20.333333333333343"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="z9f-7e-FLU"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="Sqm-CQ-CB9"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N1j-wp-ofi">
-                                        <rect key="frame" x="0.0" y="232.99999999999997" width="219" height="34.000000000000028"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dYC-gw-Cn3">
+                                        <rect key="frame" x="0.0" y="70.666666666666629" width="219" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="Uqf-1k-Ux8"/>
-                                            <constraint firstAttribute="width" constant="219" id="ca2-yD-gZW"/>
+                                            <constraint firstAttribute="width" constant="219" id="1nq-cA-dnd"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="hk0-au-hK1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-MW-0oE">
-                                        <rect key="frame" x="80" y="297" width="59" height="38.333333333333314"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Log In">
-                                                    <attributes>
-                                                        <font key="NSFont" metaFont="system" size="22"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Q5-gf-mxU">
+                                        <rect key="frame" x="0.0" y="110.66666666666663" width="219" height="20.333333333333343"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="JXT-1J-eBe"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zM-pa-Nna">
+                                        <rect key="frame" x="0.0" y="137" width="219" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="219" id="JMc-cV-uJU"/>
+                                            <constraint firstAttribute="width" constant="219" id="ndb-YA-zTV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkP-dH-B3R">
+                                        <rect key="frame" x="0.0" y="177" width="219" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Log In"/>
                                         <connections>
-                                            <action selector="loginAction:" destination="PB1-HF-wep" eventType="touchUpInside" id="Xtr-xV-Li4"/>
+                                            <action selector="loginAction:" destination="PB1-HF-wep" eventType="touchUpInside" id="Li9-KY-GHw"/>
+                                            <action selector="pressedCreateAccount:" destination="tJK-PQ-Bun" eventType="touchUpInside" id="r0O-bS-3xh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -310,17 +306,17 @@
                         </subviews>
                         <color key="backgroundColor" red="0.6023298654" green="0.83773978309999997" blue="0.86662079020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="I6k-Ee-qow" firstAttribute="centerX" secondItem="hWu-Gk-PKs" secondAttribute="centerX" id="JNq-lT-hQJ"/>
+                            <constraint firstItem="w7O-PY-ogX" firstAttribute="centerY" secondItem="hWu-Gk-PKs" secondAttribute="centerY" id="XPp-pr-K4G"/>
                             <constraint firstItem="Phx-0J-VoX" firstAttribute="leading" secondItem="ghe-5N-Meb" secondAttribute="leading" constant="10" id="f45-DP-wUq" userLabel="Cancel.leading = Safe Area.leading + 30"/>
                             <constraint firstItem="Phx-0J-VoX" firstAttribute="top" secondItem="ghe-5N-Meb" secondAttribute="top" constant="10" id="gR0-mV-2zO" userLabel="Cancel.top = Safe Area.top + 30"/>
-                            <constraint firstItem="I6k-Ee-qow" firstAttribute="centerY" secondItem="hWu-Gk-PKs" secondAttribute="centerY" id="u8P-sf-1cP"/>
+                            <constraint firstItem="w7O-PY-ogX" firstAttribute="centerX" secondItem="hWu-Gk-PKs" secondAttribute="centerX" id="jZw-7X-Nq9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ghe-5N-Meb"/>
                     </view>
                     <navigationItem key="navigationItem" id="N3Q-ix-f9v"/>
                     <connections>
-                        <outlet property="email" destination="Nk8-hD-zyP" id="n7d-Wf-w73"/>
-                        <outlet property="password" destination="N1j-wp-ofi" id="XD3-QQ-qEc"/>
+                        <outlet property="email" destination="dYC-gw-Cn3" id="9qs-tt-y7M"/>
+                        <outlet property="password" destination="4zM-pa-Nna" id="ac4-Zh-eXo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wwx-WL-MIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -379,7 +375,7 @@
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="pressedLogOut:" destination="lYc-7G-Mac" eventType="touchUpInside" id="Fay-n3-ng2"/>
-                                    <segue destination="N4m-34-w3r" kind="show" identifier="goToLogin" id="ENX-Hv-qjX"/>
+                                    <segue destination="N4m-34-w3r" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" id="ENX-Hv-qjX"/>
                                 </connections>
                             </button>
                         </subviews>

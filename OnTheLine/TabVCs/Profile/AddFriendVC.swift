@@ -38,6 +38,7 @@ class AddFriendVC: TabViewController, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FriendTableViewCell
         if userData != nil {
+            print("user data was not nil")
             let name = userData!["name"]
             cell.nameLabel.text = ("\(name!)")
             //cell.textLabel?.text = ("\(String(describing:fn)) + \(String(describing: ln))")

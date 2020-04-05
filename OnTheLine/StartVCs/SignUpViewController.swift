@@ -46,6 +46,7 @@ class SignUpViewController: UIViewController {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!){ (user, error) in
                 if error == nil {
                     self.createAccount()
+                    self.goToHome()
                     //self.performSegue(withIdentifier: "setupToHome", sender: self)
                 }
                 else{
@@ -58,6 +59,13 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func goToHome() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabbarVC = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+        tabbarVC.modalPresentationStyle = .fullScreen
+        self.present(tabbarVC, animated: true, completion: nil)
     }
     
     private func createAccount() {
@@ -76,10 +84,7 @@ class SignUpViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             } else {
                 self.addUserToDatabase()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabbarVC = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
-                tabbarVC.modalPresentationStyle = .fullScreen
-                self.present(tabbarVC, animated: false, completion: nil)
+                
             }
         }
     }
