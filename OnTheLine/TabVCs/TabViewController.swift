@@ -34,7 +34,7 @@ class TabViewController: UIViewController {
         } else {
             print("no user signed in")
             // No user is signed in.
-            self.performSegue(withIdentifier: "goToLogin", sender: self)
+            //self.performSegue(withIdentifier: "goToLogin", sender: self)
         }
         let ( _, _) = getUserInfo()
     }

@@ -330,7 +330,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9Nw-Uh-Ewm"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -343,7 +343,6 @@
                         <segue destination="1bv-yX-jhP" kind="relationship" relationship="viewControllers" id="ae6-yw-cKo"/>
                         <segue destination="5Fv-Yd-Ctc" kind="relationship" relationship="viewControllers" id="eFn-jI-3Wl"/>
                         <segue destination="8mu-TR-Wi5" kind="relationship" relationship="viewControllers" id="m9M-BF-pbI"/>
-                        <segue destination="N4m-34-w3r" kind="show" identifier="goToLogin" id="j7j-4z-DPY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -371,7 +370,7 @@
             <objects>
                 <viewController id="lYc-7G-Mac" customClass="ActivityVC" customModule="OnTheLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cAP-C5-5A9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1T-4D-LAk">
@@ -380,7 +379,7 @@
                                 <state key="normal" title="Log Out"/>
                                 <connections>
                                     <action selector="pressedLogOut:" destination="lYc-7G-Mac" eventType="touchUpInside" id="Fay-n3-ng2"/>
-                                    <segue destination="N4m-34-w3r" kind="show" id="ENX-Hv-qjX"/>
+                                    <segue destination="N4m-34-w3r" kind="show" identifier="goToLogin" id="ENX-Hv-qjX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -887,7 +886,4 @@
             <point key="canvasLocation" x="2372" y="0.0"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="j7j-4z-DPY"/>
-    </inferredMetricsTieBreakers>
 </document>
