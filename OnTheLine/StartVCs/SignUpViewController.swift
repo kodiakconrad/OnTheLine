@@ -105,6 +105,7 @@ class SignUpViewController: UIViewController {
         var ledgerData = [String: Array<String>]()
         ledgerData["Active"] = []
         ledgerData["Pending"] = []
+        ledgerData["Completed"] = []
         db.collection("Ledger").document(uid!).setData(ledgerData) { err in
             if let err = err {
                 print("Error adding document: \(err)")
