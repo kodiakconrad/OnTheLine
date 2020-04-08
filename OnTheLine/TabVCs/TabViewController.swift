@@ -33,6 +33,11 @@ class TabViewController: UIViewController {
             // User is signed in.
         } else {
             print("no user signed in")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let startVC = storyboard.instantiateViewController(withIdentifier: "startNavVC") as! UINavigationController
+            startVC.modalPresentationStyle = .fullScreen
+            self.present(startVC, animated: true, completion: nil)
+            
             
 
         }

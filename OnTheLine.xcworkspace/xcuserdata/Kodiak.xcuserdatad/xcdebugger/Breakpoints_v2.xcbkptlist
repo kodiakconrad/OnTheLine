@@ -3,4 +3,114 @@
    uuid = "E1FFB42B-4B64-41E3-9FB8-DFB84AB6F32E"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheLine/TabVCs/WagersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "WagersVC"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0 - a1503304301c06a7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.wagersTableView.getter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0 - ac34c00e877e4a9b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.wagersTableView.setter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "155">
+               </Location>
+               <Location
+                  uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0 - 53bbc99d67b99ba8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.wagersTableView.modify : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0 - 6071d2e45c730fd5"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.wagersTableView.modify : Swift.Optional&lt;__C.UITableView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0 - 93073aba3c57633b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; OnTheLine.WagersVC"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "181">
+               </Location>
+               <Location
+                  uuid = "B09F4C4E-F96F-41A2-97E4-3CE2649020A0 - 1082c5c34649b244"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;OnTheLine.WagersVC&gt;"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "119">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

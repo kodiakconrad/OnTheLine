@@ -11,20 +11,19 @@ import UIKit
 class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var wagersTableView: UITableView!
-    var cellCounts = [0,0,0]
+    var cellCounts = [1,1,1]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellCounts[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell.init()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "activeCell", for: indexPath) as! GameTableViewCell
         return cell
     }
     
@@ -47,6 +46,14 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
         }
         return header
     }
-    
+}
+
+class GameTableViewCell: UITableViewCell{
+    @IBOutlet weak var away: UILabel!
+    @IBOutlet weak var home: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var spread: UILabel!
+    @IBOutlet weak var user1: UILabel!
+    @IBOutlet weak var user2: UILabel!
     
 }
