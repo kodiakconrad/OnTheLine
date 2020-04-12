@@ -12,12 +12,21 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var wagersTableView: UITableView!
     var cellCounts = [1,1,1]
+    var active = [String]()
+    var pending = [String]()
+    var completed = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.retrieveWagers() {
+            //print("retrieved wagers")
+            self.getPending()
+            self.getActive()
+            self.getCompleted()
+        }
         
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellCounts[section]
     }
@@ -45,6 +54,38 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             break
         }
         return header
+    }
+    
+    
+    // get the three lists of wagerIDs from the "Ledger"
+    // collection
+    func retrieveWagers(completion: @escaping () -> Void) {
+        let userRef = db.collection("Ledger").document(self.uid)
+        userRef.getDocument{ (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                self.active = data?["Active"] as! [String]
+                self.pending = data?["Pending"] as! [String]
+                self.completed = data?["Completed"] as! [String]
+            } else {
+                completion()
+                print("error, cant find user in ledger")
+                //do error handling later
+            }
+        completion()
+        }
+    }
+    
+    func getPending() {
+        
+    }
+    
+    func getActive() {
+        
+    }
+    
+    func getCompleted() {
+        
     }
 }
 

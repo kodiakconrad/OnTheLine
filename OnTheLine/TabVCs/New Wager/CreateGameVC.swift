@@ -75,6 +75,7 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
         return game
     }
     
+    // adds event to "Events" collection and returns eventID
     func addGametoDatabase(game: Game, completion: (_ docID: String) -> Void) {
         let docRef = db.collection(EVENTS).document()
         docRef.setData(game.getData()) { err in
@@ -88,6 +89,7 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
         completion(docRef.documentID)
     }
     
+    // add wager to collection "Wagers" and returns wagerID
     func addWagertoDatabbase(eventID: String, completion: (_ wagerID: String) -> Void) {
         let wagerRef = db.collection(WAGERS).document()
         var data = [String: Any]()
