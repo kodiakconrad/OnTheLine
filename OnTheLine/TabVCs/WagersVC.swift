@@ -15,18 +15,74 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     var active = [String]()
     var pending = [String]()
     var completed = [String]()
+    var pendingData = [[String: Any]]()
+    var activeData = [[String: Any]]()
+    var completedData = [[String: Any]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveWagers() {
             //print("retrieved wagers")
-            self.getPending()
-            self.getActive()
-            self.getCompleted()
+            self.cellCounts[0] = self.pending.count
+            if self.pending.count != 0 {
+                for wagerID in self.pending {
+                    self.getWager(wagerID: wagerID, type: "Pending")
+                }
+                for wagerID in self.active {
+                    self.getWager(wagerID: wagerID, type: "Active")
+                }
+                for wagerID in self.completed {
+                    self.getWager(wagerID: wagerID, type: "Completed")
+                }
+            }
+            self.wagersTableView.reloadData()
         }
         
     }
-
+    
+    // get the three lists of wagerIDs from the "Ledger"
+    // collection
+    func retrieveWagers(completion: @escaping () -> Void) {
+        let userRef = db.collection("Ledger").document(self.uid)
+        userRef.getDocument{ (document, error) in
+            if let document = document, document.exists {
+                let data = document.data()
+                self.active = data?["Active"] as! [String]
+                self.pending = data?["Pending"] as! [String]
+                self.completed = data?["Completed"] as! [String]
+            } else {
+                completion()
+                print("error, cant find user in ledger")
+                //do error handling later
+            }
+        completion()
+        }
+    }
+    
+    func getWager(wagerID: String, type: String) {
+        let ref = db.collection("Wagers").document(wagerID)
+        ref.getDocument { (document, error) in
+            if let document = document, document.exists {
+                // retreive wager data, set field
+                switch type {
+                case "Pending":
+                    self.pendingData.append(document.data()!)
+                case "Active":
+                    self.activeData.append(document.data()!)
+                case "Completed":
+                    self.completedData.append(document.data()!)
+                default:
+                    // something went wrong
+                    break
+                }
+            } else {
+                print("no wager with ID \(wagerID)")
+                // do error handling
+            }
+            
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellCounts[section]
     }
@@ -54,38 +110,6 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             break
         }
         return header
-    }
-    
-    
-    // get the three lists of wagerIDs from the "Ledger"
-    // collection
-    func retrieveWagers(completion: @escaping () -> Void) {
-        let userRef = db.collection("Ledger").document(self.uid)
-        userRef.getDocument{ (document, error) in
-            if let document = document, document.exists {
-                let data = document.data()
-                self.active = data?["Active"] as! [String]
-                self.pending = data?["Pending"] as! [String]
-                self.completed = data?["Completed"] as! [String]
-            } else {
-                completion()
-                print("error, cant find user in ledger")
-                //do error handling later
-            }
-        completion()
-        }
-    }
-    
-    func getPending() {
-        
-    }
-    
-    func getActive() {
-        
-    }
-    
-    func getCompleted() {
-        
     }
 }
 
