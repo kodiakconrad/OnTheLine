@@ -467,6 +467,12 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y88-lN-1kZ">
+                                                    <rect key="frame" x="166" y="161" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.60392156860000001" green="0.82352941180000006" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -481,15 +487,19 @@
                                                 <constraint firstItem="zdl-0d-UYg" firstAttribute="top" secondItem="iTg-iL-nSC" secondAttribute="bottom" constant="60" id="XjI-OF-u2V"/>
                                                 <constraint firstItem="iTg-iL-nSC" firstAttribute="leading" secondItem="zdl-0d-UYg" secondAttribute="leading" id="Zc1-a6-UCY"/>
                                                 <constraint firstItem="iTg-iL-nSC" firstAttribute="leading" secondItem="fpo-sT-GDh" secondAttribute="leadingMargin" id="aey-Yi-TdH"/>
+                                                <constraint firstItem="y88-lN-1kZ" firstAttribute="leading" secondItem="zdl-0d-UYg" secondAttribute="trailing" constant="28" id="bf1-Po-og6"/>
                                                 <constraint firstItem="X0i-2b-fjA" firstAttribute="leading" secondItem="irV-fF-udr" secondAttribute="trailing" constant="38" id="cF7-o5-bfr"/>
                                                 <constraint firstItem="ULk-Jd-8D1" firstAttribute="centerX" secondItem="fpo-sT-GDh" secondAttribute="centerX" id="gWk-Iy-6gZ"/>
                                                 <constraint firstItem="zdl-0d-UYg" firstAttribute="firstBaseline" secondItem="Xd0-4X-4zS" secondAttribute="firstBaseline" id="hf8-PX-GpH"/>
+                                                <constraint firstItem="y88-lN-1kZ" firstAttribute="top" secondItem="zdl-0d-UYg" secondAttribute="top" id="iKK-hf-cb0"/>
                                                 <constraint firstItem="irV-fF-udr" firstAttribute="centerX" secondItem="fpo-sT-GDh" secondAttribute="centerX" id="jyg-iG-4PD"/>
                                                 <constraint firstItem="X0i-2b-fjA" firstAttribute="trailing" secondItem="fpo-sT-GDh" secondAttribute="trailingMargin" id="oTl-BD-TVR"/>
                                                 <constraint firstItem="iTg-iL-nSC" firstAttribute="baseline" secondItem="X0i-2b-fjA" secondAttribute="baseline" id="q6A-8n-3lC"/>
                                                 <constraint firstItem="iTg-iL-nSC" firstAttribute="top" secondItem="fpo-sT-GDh" secondAttribute="topMargin" constant="32" id="qrb-Lv-iGB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="y88-lN-1kZ" secondAttribute="bottom" constant="7" id="rFY-8j-djE"/>
                                                 <constraint firstItem="irV-fF-udr" firstAttribute="leading" secondItem="iTg-iL-nSC" secondAttribute="trailing" constant="38" id="rIU-zQ-Y82"/>
                                                 <constraint firstItem="zdl-0d-UYg" firstAttribute="baseline" secondItem="Xd0-4X-4zS" secondAttribute="baseline" id="vaY-8r-MNQ"/>
+                                                <constraint firstItem="y88-lN-1kZ" firstAttribute="centerX" secondItem="ULk-Jd-8D1" secondAttribute="centerX" id="xbE-Lj-pI3"/>
                                                 <constraint firstItem="JFY-N8-3Xf" firstAttribute="centerX" secondItem="fpo-sT-GDh" secondAttribute="centerX" id="yTB-Wq-2C1"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -500,6 +510,7 @@
                                             <outlet property="spread" destination="ULk-Jd-8D1" id="NOL-o6-JdG"/>
                                             <outlet property="user1" destination="zdl-0d-UYg" id="VlI-gR-iIv"/>
                                             <outlet property="user2" destination="Xd0-4X-4zS" id="bed-HD-m1x"/>
+                                            <outlet property="value" destination="y88-lN-1kZ" id="Ccb-Pt-87D"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -96,6 +96,7 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
         data["Event"] = eventID
         data["Status"] = "pending"
         data["Value"] = self.wagerValue.text!
+        // TODO: Make it so uid1 is home and uid2 is away
         data["uid1"] = self.uid
         data["uid2"] = self.opponent
         wagerRef.setData(data)  { err in
@@ -143,7 +144,6 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
     }
 
 //For later
-//
 //
 //
 //
