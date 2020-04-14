@@ -112,5 +112,69 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D2C3A370-27F0-4132-AD1C-333D108B70B5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheLine/TabVCs/WagersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "getWager(wagerID:type:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D2C3A370-27F0-4132-AD1C-333D108B70B5 - 7f162bba2766062"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OnTheLine.WagersVC.getWager(wagerID: Swift.String, type: Swift.String) -&gt; ()"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1282">
+               </Location>
+               <Location
+                  uuid = "D2C3A370-27F0-4132-AD1C-333D108B70B5 - 90fdb18c3f70564f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in OnTheLine.WagersVC.getWager(wagerID: Swift.String, type: Swift.String) -&gt; ()"
+                  moduleName = "OnTheLine"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Kodiak/Apps/OnTheLine/OnTheLine/TabVCs/WagersVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "400">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6ABCDA88-AF93-46D2-B34B-1FA56D6DB8CC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OnTheLine/TabVCs/WagersVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "getWager(wagerID:type:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -34,7 +34,8 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     // get the three lists of wagerIDs from the "Ledger"
     // collection
     func retrieveWagerIDs(completion: @escaping () -> Void) {
-        let userRef = db.collection("Ledger").document(self.uid)
+        let userRef = db.collection(LEDGER).document(self.uid)
+        print(userRef.path)
         userRef.getDocument{ (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
@@ -46,36 +47,48 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                 print("error, cant find user in ledger")
                 //do error handling later
             }
-        completion()
+            print("completion collection wager ID")
+            completion()
         }
     }
     
     // iterates through all wagerIDs and gets events and users
     func collectWagerData(completion: @escaping () -> Void) {
+        let myGroup = DispatchGroup()
         if self.pending.count != 0 {
+            myGroup.enter()
             for wagerID in self.pending {
-                self.getWager(wagerID: wagerID, type: "Pending")
+                self.getWager(wagerID: wagerID, type: "Pending") {}
             }
         }
         if self.active.count != 0 {
             for wagerID in self.active {
-                self.getWager(wagerID: wagerID, type: "Active")
+                self.getWager(wagerID: wagerID, type: "Active") {}
             }
         }
         if self.completed.count != 0 {
             for wagerID in self.completed {
-                self.getWager(wagerID: wagerID, type: "Completed")
+                self.getWager(wagerID: wagerID, type: "Completed") {}
             }
         }
         completion()
     }
     
-    
-    func getWager(wagerID: String, type: String) {
-        let ref = db.collection("Wagers").document(wagerID)
-        ref.getDocument { (document, error) in
+    func getWager(wagerID: String, type: String, completion: @escaping () -> Void) {
+        print("get wager called")
+        let wagerRef = db.collection(WAGERS).document(wagerID)
+        print(wagerRef.path)
+        wagerRef.getDocument() {
+            (document, error) in
+            print("in body of getdoc")
+            if error != nil {
+                print("error in getWager")
+                print(error.debugDescription)
+            }
             if let document = document, document.exists {
+                print("document")
                 let data = document.data()!
+                print("data")
                 let uid1 = data["uid1"]
                 let uid2 = data["uid2"]
                 let value = data["Value"]
@@ -88,6 +101,8 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                     switch type {
                         case "Pending":
                         self.tableData[0].append(wager)
+                        print("pending called")
+                        print(wager.wagerID)
                         case "Active":
                         self.tableData[1].append(wager)
                         case "Completed":
@@ -96,15 +111,20 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                         // something went wrong
                         break
                     }
+                    
                 }
+                completion()
             } else {
                 print("no wager with ID \(wagerID)")
                 // do error handling
+                completion()
             }
         }
+
     }
     
     func populateDataTable(uid1: String, uid2: String, eventid: String, completion: (_ user1: String, _ user2: String, _ event: Event) -> Void) {
+        print("populating data table")
         // Remember: UID1 is home team. UID2 is away team
         let eventRef = db.collection("Events").document(eventid)
         let userRef = db.collection("Users")
@@ -149,6 +169,7 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             print("did not guard event enough")
             return
         }
+        print("completion, u1, u2")
         completion(user1, user2, event!)
     }
     
