@@ -134,7 +134,7 @@ class Wager {
     var value: Int
     var status: String
     
-    init(type: EventType, event: Event) {
+    init(type: EventType, event: Event, wagerID: String) {
         self.type = type
         self.event = event
         self.users = []

@@ -21,11 +21,11 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.retrieveWagerIDs() {
-            //print("retrieved wagers")
-            self.cellCounts[0] = self.pending.count
-            self.cellCounts[1] = self.active.count
-            self.cellCounts[2] = self.completed.count
             self.collectWagerData {
+                print("wager data collected")
+                self.cellCounts[0] = self.pending.count
+                self.cellCounts[1] = self.active.count
+                self.cellCounts[2] = self.completed.count
                 self.wagersTableView.reloadData()
             }
         }
@@ -47,37 +47,53 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                 print("error, cant find user in ledger")
                 //do error handling later
             }
-            print("completion collection wager ID")
+            print("completed collecting wager ID")
             completion()
         }
     }
     
     // iterates through all wagerIDs and gets events and users
     func collectWagerData(completion: @escaping () -> Void) {
+        print("collecting wager data")
         let myGroup = DispatchGroup()
         if self.pending.count != 0 {
             myGroup.enter()
             for wagerID in self.pending {
-                self.getWager(wagerID: wagerID, type: "Pending") {}
+                self.getWager(wagerID: wagerID, type: "Pending") {
+                    myGroup.leave()
+                }
             }
+  
         }
         if self.active.count != 0 {
+            myGroup.enter()
             for wagerID in self.active {
-                self.getWager(wagerID: wagerID, type: "Active") {}
+                self.getWager(wagerID: wagerID, type: "Active") {
+                    myGroup.leave()
+                }
+
             }
+
         }
         if self.completed.count != 0 {
+            myGroup.enter()
             for wagerID in self.completed {
-                self.getWager(wagerID: wagerID, type: "Completed") {}
+                self.getWager(wagerID: wagerID, type: "Completed") {
+                    myGroup.leave()
+                }
             }
         }
-        completion()
+        print("waiting for dispatch group")
+        myGroup.notify(queue: .main) {
+            print("completion")
+            completion()
+        }
+
     }
     
     func getWager(wagerID: String, type: String, completion: @escaping () -> Void) {
         print("get wager called")
         let wagerRef = db.collection(WAGERS).document(wagerID)
-        print(wagerRef.path)
         wagerRef.getDocument() {
             (document, error) in
             print("in body of getdoc")
@@ -86,91 +102,95 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                 print(error.debugDescription)
             }
             if let document = document, document.exists {
-                print("document")
                 let data = document.data()!
-                print("data")
-                let uid1 = data["uid1"]
-                let uid2 = data["uid2"]
+                print(data)
+                let uid1 = data["uid1"] as! String
+                let uid2 = data["uid2"] as! String
                 let value = data["Value"]
                 let eventID = data["Event"] //change to "eventID"
-                self.populateDataTable(uid1: uid1! as! String, uid2: uid2! as! String, eventid: eventID! as! String) {
-                    user1, user2, event in
-                    let wager = Wager.init(type: EventType.game, event: event)
+                print("populating data table")
+                // Remember: UID1 is home team. UID2 is away team
+                let eventRef = self.db.collection(self.EVENTS).document(eventID! as! String)
+                let userRef = self.db.collection(self.USERS)
+                var user1 = ""
+                var user2 = ""
+                var event: Event? = nil
+                let dp = DispatchGroup()
+                dp.enter()
+                eventRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let eventData = document.data()!
+                        print(eventData)
+                        let eventType = eventData["EventType"]! as! String
+                        if eventType == "Game" {
+                            event = Game.init(data: eventData)
+                        } else if eventType == "Statistic" {
+                            // TODO
+                            event = Statistic.init(name: "temp", subject: "temp", statType: "temp", value: 0)
+                        } else {
+                            // TODO
+                        }
+                    } else {
+                        print("Event does not exist")
+                        // do error handling
+                    }
+                    dp.leave()
+                }
+                dp.enter()
+                userRef.document(uid1).getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        user1 = document.data()!["username"] as! String
+                    } else {
+                        print("UID1 does not exist")
+                        // do error handling
+                    }
+                    dp.leave()
+                }
+                dp.enter()
+                userRef.document(uid2).getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        user2 = document.data()!["username"] as! String
+                    } else {
+                        print("UID2 does not exist")
+                        // do error handling
+                    }
+                    dp.leave()
+                }
+                dp.notify(queue: .main) {
+                    guard (user1 != "" && user2 != "" && event != nil) else {
+                        // do error handling
+                        // throw error about event
+                        print(user1, user2, event!)
+                        print("did not guard event enough")
+                        return
+                    }
+                    let wager = Wager.init(type: EventType.game, event: event!, wagerID: wagerID)
                     wager.users = [user1, user2]
                     wager.value = value as! Int
                     switch type {
                         case "Pending":
-                        self.tableData[0].append(wager)
-                        print("pending called")
-                        print(wager.wagerID)
+                            print(self.tableData.count)
+                            if (self.tableData.count == 0) {
+                                self.tableData.append([wager])
+                            } else {
+                                self.tableData[0].append(wager)
+                            }
                         case "Active":
-                        self.tableData[1].append(wager)
+                            self.tableData[1].append(wager)
                         case "Completed":
-                        self.tableData[2].append(wager)
+                            self.tableData[2].append(wager)
                         default:
                         // something went wrong
-                        break
+                            break
                     }
-                    
+                    completion()
                 }
-                completion()
             } else {
                 print("no wager with ID \(wagerID)")
-                // do error handling
                 completion()
-            }
-        }
-
-    }
-    
-    func populateDataTable(uid1: String, uid2: String, eventid: String, completion: (_ user1: String, _ user2: String, _ event: Event) -> Void) {
-        print("populating data table")
-        // Remember: UID1 is home team. UID2 is away team
-        let eventRef = db.collection("Events").document(eventid)
-        let userRef = db.collection("Users")
-        var user1 = ""
-        var user2 = ""
-        var event: Event? = nil
-        eventRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let eventData = document.data()!
-                let eventType = eventData["EventType"]! as! String
-                if eventType == "Game" {
-                    event = Game.init(data: eventData)
-                } else if eventType == "Statistic" {
-                    // TODO
-                } else {
-                    // TODO
-                }
-            } else {
-                print("Event does not exist")
                 // do error handling
             }
-        }
-        userRef.document(uid1).getDocument { (document, error) in
-            if let document = document, document.exists {
-                user1 = document.data()!["username"] as! String
-            } else {
-                print("UID1 does not exist")
-                // do error handling
-            }
-        }
-        userRef.document(uid2).getDocument { (document, error) in
-            if let document = document, document.exists {
-                user2 = document.data()!["username"] as! String
-            } else {
-                print("UID2 does not exist")
-                // do error handling
-            }
-        }
-        guard (user1 != "" && user2 != "" && event != nil) else {
-            // do error handling
-            // throw error about event
-            print("did not guard event enough")
-            return
-        }
-        print("completion, u1, u2")
-        completion(user1, user2, event!)
+        } // end of first getDocument
     }
     
     // MARK: - UITableViewDataSource
@@ -190,8 +210,9 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             print("case game")
             cell.away.text = event.awayTeam
             cell.home.text = event.homeTeam
-            print(event.timestamp!)
-            cell.date.text = event.timestamp.toString(dateFormat: "MM/dd/yyyy")
+            //print(event.timestamp!)
+            //cell.date.text = event.timestamp.toString(dateFormat: "MM/dd/yyyy")
+            cell.date.text = "TBD"
             cell.spread.text = String(event.spread)
             cell.value.text = String(cellData.value)
             cell.user1.text = cellData.users[0]

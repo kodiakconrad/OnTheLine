@@ -95,7 +95,7 @@ class CreateGameVC: EventTypeVC, UITextFieldDelegate {
         var data = [String: Any]()
         data["Event"] = eventID
         data["Status"] = "pending"
-        data["Value"] = self.wagerValue.text!
+        data["Value"] = Int(self.wagerValue.text!)
         // TODO: Make it so uid1 is home and uid2 is away
         data["uid1"] = self.uid
         data["uid2"] = self.opponent
