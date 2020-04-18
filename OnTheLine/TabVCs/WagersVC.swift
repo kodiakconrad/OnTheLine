@@ -201,8 +201,13 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "activeCell", for: indexPath) as! GameTableViewCell
-        print(indexPath.section)
-        print(indexPath.row)
+        if indexPath.section == 0 {
+            cell.backgroundColor = .systemYellow
+        } else if indexPath.section == 1 {
+            cell.backgroundColor = .systemBlue
+        } else {
+            // TODO: green background for all victories and red for all losses
+        }
         let cellData = tableData[indexPath.section][indexPath.row]
         let event = cellData.event
         switch cellData.type {
@@ -210,10 +215,12 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             print("case game")
             cell.away.text = event.awayTeam
             cell.home.text = event.homeTeam
+            // TODO: Make timestamp work
             //print(event.timestamp!)
             //cell.date.text = event.timestamp.toString(dateFormat: "MM/dd/yyyy")
             cell.date.text = "TBD"
             cell.spread.text = String(event.spread)
+            // TODO: Change when
             cell.value.text = String(cellData.value)
             cell.user1.text = cellData.users[0]
             cell.user2.text = cellData.users[1]
@@ -222,6 +229,7 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             case .outcome:
             print("case outcome")
         }
+        cell.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(pressedCell)))
         return cell
     }
     
@@ -231,6 +239,26 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headers[section]
+    }
+    
+    @objc func pressedCell() {
+        let alertController = UIAlertController(title: "New Wager", message: "from friend", preferredStyle: .alert)
+        let acceptAction = UIAlertAction(title: "Accept", style: .default , handler: { action in
+            self.acceptWager()})
+        let declineAction = UIAlertAction(title: "Decline", style: .cancel , handler: { action in
+            self.declineWager()})
+        alertController.addAction(acceptAction)
+        alertController.addAction(declineAction)
+        self.present(alertController, animated: true)
+        
+    }
+    
+    func acceptWager() {
+        // TODO: implement
+    }
+    
+    func declineWager() {
+        // TODO: implement
     }
 }
 

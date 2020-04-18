@@ -41,7 +41,7 @@ class ProfileVC: TabViewController {
                         for doc in querySnapshot!.documents {
                             let friendID = doc.documentID
                             let friendName = doc["name"]!
-                            let alertController = UIAlertController(title: "New Friend", message: "from friend \(friendName)", preferredStyle: .alert)
+                            let alertController = UIAlertController(title: "New Friend", message: "from \(friendName)", preferredStyle: .alert)
                             let acceptAction = UIAlertAction(title: "Accept", style: .default , handler: { action in
                                 self.acceptFriend(uid: friendID)})
                             let declineAction = UIAlertAction(title: "Decline", style: .cancel , handler: { action in
