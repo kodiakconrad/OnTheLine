@@ -13,19 +13,17 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var wagersTableView: UITableView!
     var cellCounts = [0,0,0]
     var headers = ["Pending", "Active", "Completed"]
-    var active = [String]()
-    var pending = [String]()
-    var completed = [String]()
+    var wagerData = [[String](), [String](), [String]()]
     var tableData = [[Wager]]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated
+        )
         self.retrieveWagerIDs() {
             self.collectWagerData {
-                print("wager data collected")
-                self.cellCounts[0] = self.pending.count
-                self.cellCounts[1] = self.active.count
-                self.cellCounts[2] = self.completed.count
+                self.cellCounts[0] = self.wagerData[0].count
+                self.cellCounts[1] = self.wagerData[1].count
+                self.cellCounts[2] = self.wagerData[2].count
                 self.wagersTableView.reloadData()
             }
         }
@@ -39,35 +37,34 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
         userRef.getDocument{ (document, error) in
             if let document = document, document.exists {
                 let data = document.data()
-                self.active = data?["Active"] as! [String]
-                self.pending = data?["Pending"] as! [String]
-                self.completed = data?["Completed"] as! [String]
+                self.wagerData[0] = data?["Pending"] as! [String]
+                self.wagerData[1] = data?["Active"] as! [String]
+                self.wagerData[2] = data?["Completed"] as! [String]
             } else {
                 completion()
                 print("error, cant find user in ledger")
                 //do error handling later
             }
-            print("completed collecting wager ID")
             completion()
         }
     }
     
     // iterates through all wagerIDs and gets events and users
     func collectWagerData(completion: @escaping () -> Void) {
-        print("collecting wager data")
         let myGroup = DispatchGroup()
-        if self.pending.count != 0 {
-            myGroup.enter()
-            for wagerID in self.pending {
+        if self.wagerData[0].count != 0 {
+            for wagerID in self.wagerData[0] {
+                myGroup.enter()
+                print(wagerID)
                 self.getWager(wagerID: wagerID, type: "Pending") {
                     myGroup.leave()
                 }
             }
   
         }
-        if self.active.count != 0 {
+        if self.wagerData[1].count != 0 {
             myGroup.enter()
-            for wagerID in self.active {
+            for wagerID in self.wagerData[1] {
                 self.getWager(wagerID: wagerID, type: "Active") {
                     myGroup.leave()
                 }
@@ -75,45 +72,39 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             }
 
         }
-        if self.completed.count != 0 {
+        if self.wagerData[2].count != 0 {
             myGroup.enter()
-            for wagerID in self.completed {
+            for wagerID in self.wagerData[2] {
                 self.getWager(wagerID: wagerID, type: "Completed") {
                     myGroup.leave()
                 }
             }
         }
-        print("waiting for dispatch group")
         myGroup.notify(queue: .main) {
-            print("completion")
             completion()
         }
 
     }
     
     func getWager(wagerID: String, type: String, completion: @escaping () -> Void) {
-        print("get wager called")
         let wagerRef = db.collection(WAGERS).document(wagerID)
         wagerRef.getDocument() {
             (document, error) in
-            print("in body of getdoc")
             if error != nil {
                 print("error in getWager")
                 print(error.debugDescription)
             }
             if let document = document, document.exists {
                 let data = document.data()!
-                print(data)
                 let uid1 = data["uid1"] as! String
                 let uid2 = data["uid2"] as! String
                 let value = data["Value"]
                 let eventID = data["Event"] //change to "eventID"
-                print("populating data table")
+                let winner = data["winner"] ?? ""
                 // Remember: UID1 is home team. UID2 is away team
                 let eventRef = self.db.collection(self.EVENTS).document(eventID! as! String)
                 let userRef = self.db.collection(self.USERS)
-                var user1 = ""
-                var user2 = ""
+                var users = [String: String]()
                 var event: Event? = nil
                 let dp = DispatchGroup()
                 dp.enter()
@@ -139,7 +130,7 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                 dp.enter()
                 userRef.document(uid1).getDocument { (document, error) in
                     if let document = document, document.exists {
-                        user1 = document.data()!["username"] as! String
+                        users[uid1] = (document.data()!["username"] as! String)
                     } else {
                         print("UID1 does not exist")
                         // do error handling
@@ -149,7 +140,7 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                 dp.enter()
                 userRef.document(uid2).getDocument { (document, error) in
                     if let document = document, document.exists {
-                        user2 = document.data()!["username"] as! String
+                        users[uid2] = (document.data()!["username"] as! String)
                     } else {
                         print("UID2 does not exist")
                         // do error handling
@@ -157,14 +148,15 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
                     dp.leave()
                 }
                 dp.notify(queue: .main) {
-                    guard (user1 != "" && user2 != "" && event != nil) else {
+                    guard (!users.isEmpty && event != nil) else {
                         // do error handling
                         // throw error about event
-                        print(user1, user2, event!)
                         print("did not guard event enough")
                         return
                     }
                     let wager = Wager.init(type: EventType.game, event: event!, wagerID: wagerID)
+                    let user1 = users[uid1]!
+                    let user2 = users[uid2]!
                     wager.users = [user1, user2]
                     wager.value = value as! Int
                     switch type {
@@ -233,24 +225,16 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
-    }
+    func numberOfSections(in tableView: UITableView) -> Int { return 3 }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return headers[section]
     }
     
     @objc func pressedCell() {
-        let alertController = UIAlertController(title: "New Wager", message: "from friend", preferredStyle: .alert)
-        let acceptAction = UIAlertAction(title: "Accept", style: .default , handler: { action in
-            self.acceptWager()})
-        let declineAction = UIAlertAction(title: "Decline", style: .cancel , handler: { action in
-            self.declineWager()})
-        alertController.addAction(acceptAction)
-        alertController.addAction(declineAction)
-        self.present(alertController, animated: true)
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let wagerVC = storyboard.instantiateViewController(withIdentifier: "singleWager")
+        self.navigationController?.pushViewController(wagerVC, animated: true)
     }
     
     func acceptWager() {
@@ -282,4 +266,14 @@ extension Date
         return dateFormatter.string(from: self)
     }
 
+}
+
+
+class WagerTapGestureRecognizer: UITapGestureRecognizer {
+    var opponentUsername : String?
+    
+    init(target: Any?, action: Selector?, username: String) {
+        super.init(target: target, action: action)
+        opponentUsername = username
+    }
 }
