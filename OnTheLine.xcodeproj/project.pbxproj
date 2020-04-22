@@ -12,15 +12,15 @@
 		51C2F003C90783F8BE0C3816 /* Pods_OnTheLine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D65FB8C33F400E5919F8C04 /* Pods_OnTheLine.framework */; };
 		D71CB641234BCC60006821F3 /* AddFriendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71CB640234BCC60006821F3 /* AddFriendView.xib */; };
 		D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71CB645234BD11E006821F3 /* AddFriendView.swift */; };
-		D723A740244E4CD5002F6053 /* SingleWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D723A73F244E4CD5002F6053 /* SingleWagerVC.swift */; };
 		D73820FE22D6E28A00A8D43E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */; };
 		D76E2BEB237CB38300AA526E /* CreateGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76E2BEA237CB38300AA526E /* CreateGameVC.swift */; };
+		D782D6BF2450F6B1004066FA /* LedgerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782D6BE2450F6B1004066FA /* LedgerVC.swift */; };
+		D782D6C12450F6ED004066FA /* SingleWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782D6C02450F6ED004066FA /* SingleWagerVC.swift */; };
+		D782D6C32450F6FB004066FA /* WagersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782D6C22450F6FB004066FA /* WagersVC.swift */; };
+		D782D6C82450F944004066FA /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782D6C72450F944004066FA /* ActivityVC.swift */; };
+		D782D6CA2450F956004066FA /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782D6C92450F955004066FA /* ProfileVC.swift */; };
 		D78AE9292433E1A600B5D97E /* EventTypeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78AE9282433E1A600B5D97E /* EventTypeVC.swift */; };
 		D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFA2343C04A000D260C /* NewWagerVC.swift */; };
-		D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFC2343C064000D260C /* LedgerVC.swift */; };
-		D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8AFE2343C07F000D260C /* ActivityVC.swift */; };
-		D78C8B032343C0BB000D260C /* WagersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B022343C0BB000D260C /* WagersVC.swift */; };
-		D78C8B082343C3F8000D260C /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B072343C3F8000D260C /* ProfileVC.swift */; };
 		D78C8B0A2343D63C000D260C /* Wager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B092343D63C000D260C /* Wager.swift */; };
 		D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B0D2347B52E000D260C /* TabViewController.swift */; };
 		D78C8B102347BD56000D260C /* AddFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78C8B0F2347BD56000D260C /* AddFriendVC.swift */; };
@@ -65,15 +65,16 @@
 		9D65FB8C33F400E5919F8C04 /* Pods_OnTheLine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheLine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71CB640234BCC60006821F3 /* AddFriendView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendView.xib; sourceTree = "<group>"; };
 		D71CB645234BD11E006821F3 /* AddFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendView.swift; sourceTree = "<group>"; };
-		D723A73F244E4CD5002F6053 /* SingleWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleWagerVC.swift; path = Wagers/SingleWagerVC.swift; sourceTree = "<group>"; };
 		D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D76E2BEA237CB38300AA526E /* CreateGameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGameVC.swift; sourceTree = "<group>"; };
+		D782D6BC2450F5DE004066FA /* OnTheLine */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OnTheLine; sourceTree = "<group>"; };
+		D782D6BE2450F6B1004066FA /* LedgerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerVC.swift; sourceTree = "<group>"; };
+		D782D6C02450F6ED004066FA /* SingleWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleWagerVC.swift; sourceTree = "<group>"; };
+		D782D6C22450F6FB004066FA /* WagersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagersVC.swift; sourceTree = "<group>"; };
+		D782D6C72450F944004066FA /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
+		D782D6C92450F955004066FA /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		D78AE9282433E1A600B5D97E /* EventTypeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTypeVC.swift; sourceTree = "<group>"; };
 		D78C8AFA2343C04A000D260C /* NewWagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWagerVC.swift; sourceTree = "<group>"; };
-		D78C8AFC2343C064000D260C /* LedgerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LedgerVC.swift; sourceTree = "<group>"; };
-		D78C8AFE2343C07F000D260C /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityVC.swift; path = /Users/Kodiak/Apps/OnTheLine/OnTheLine/ActivityVC.swift; sourceTree = "<absolute>"; };
-		D78C8B022343C0BB000D260C /* WagersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WagersVC.swift; sourceTree = "<group>"; };
-		D78C8B072343C3F8000D260C /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileVC.swift; path = /Users/Kodiak/Apps/OnTheLine/OnTheLine/ProfileVC.swift; sourceTree = "<absolute>"; };
 		D78C8B092343D63C000D260C /* Wager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wager.swift; sourceTree = "<group>"; };
 		D78C8B0D2347B52E000D260C /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		D78C8B0F2347BD56000D260C /* AddFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendVC.swift; sourceTree = "<group>"; };
@@ -151,11 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				D78C8B0D2347B52E000D260C /* TabViewController.swift */,
+				D782D6C62450F737004066FA /* Activity */,
+				D782D6C52450F71A004066FA /* Ledger */,
+				D782D6C42450F703004066FA /* Wagers */,
 				D75DF5FC237202250057E143 /* New Wager */,
 				D71CB644234BD095006821F3 /* Profile */,
-				D78C8AFE2343C07F000D260C /* ActivityVC.swift */,
-				D78C8B022343C0BB000D260C /* WagersVC.swift */,
-				D78C8AFC2343C064000D260C /* LedgerVC.swift */,
 			);
 			path = TabVCs;
 			sourceTree = "<group>";
@@ -174,7 +175,7 @@
 		D71CB644234BD095006821F3 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D78C8B072343C3F8000D260C /* ProfileVC.swift */,
+				D782D6C92450F955004066FA /* ProfileVC.swift */,
 				D78C8B0F2347BD56000D260C /* AddFriendVC.swift */,
 				D71CB640234BCC60006821F3 /* AddFriendView.xib */,
 				D71CB645234BD11E006821F3 /* AddFriendView.swift */,
@@ -192,10 +193,38 @@
 			path = "New Wager";
 			sourceTree = "<group>";
 		};
+		D782D6C42450F703004066FA /* Wagers */ = {
+			isa = PBXGroup;
+			children = (
+				D782D6C02450F6ED004066FA /* SingleWagerVC.swift */,
+				D782D6C22450F6FB004066FA /* WagersVC.swift */,
+			);
+			name = Wagers;
+			path = ../../Wagers;
+			sourceTree = "<group>";
+		};
+		D782D6C52450F71A004066FA /* Ledger */ = {
+			isa = PBXGroup;
+			children = (
+				D782D6BE2450F6B1004066FA /* LedgerVC.swift */,
+			);
+			name = Ledger;
+			path = ../../Ledger;
+			sourceTree = "<group>";
+		};
+		D782D6C62450F737004066FA /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				D782D6C72450F944004066FA /* ActivityVC.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		D7F6010722683BFC00F1AFA0 = {
 			isa = PBXGroup;
 			children = (
 				D7F6011222683BFD00F1AFA0 /* OnTheLine */,
+				D782D6BC2450F5DE004066FA /* OnTheLine */,
 				D7F6012922683BFF00F1AFA0 /* OnTheLineTests */,
 				D7F6013422683BFF00F1AFA0 /* OnTheLineUITests */,
 				D7F6011122683BFD00F1AFA0 /* Products */,
@@ -217,16 +246,15 @@
 		D7F6011222683BFD00F1AFA0 /* OnTheLine */ = {
 			isa = PBXGroup;
 			children = (
-				D71CB643234BD079006821F3 /* StartVCs */,
-				D71CB642234BD055006821F3 /* TabVCs */,
 				D7F6011322683BFD00F1AFA0 /* AppDelegate.swift */,
 				D7F6011922683BFD00F1AFA0 /* Main.storyboard */,
-				D723A73F244E4CD5002F6053 /* SingleWagerVC.swift */,
-				D7F6011E22683BFF00F1AFA0 /* LaunchScreen.storyboard */,
 				D78C8B092343D63C000D260C /* Wager.swift */,
+				D7F6012122683BFF00F1AFA0 /* Info.plist */,
+				D71CB643234BD079006821F3 /* StartVCs */,
+				D71CB642234BD055006821F3 /* TabVCs */,
+				D7F6011E22683BFF00F1AFA0 /* LaunchScreen.storyboard */,
 				D7F6011C22683BFF00F1AFA0 /* Assets.xcassets */,
 				D73820FD22D6E28A00A8D43E /* GoogleService-Info.plist */,
-				D7F6012122683BFF00F1AFA0 /* Info.plist */,
 				D7FE443022E28422008604A6 /* OnTheLine.entitlements */,
 			);
 			path = OnTheLine;
@@ -499,6 +527,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D782D6CA2450F956004066FA /* ProfileVC.swift in Sources */,
+				D782D6C82450F944004066FA /* ActivityVC.swift in Sources */,
+				D782D6C32450F6FB004066FA /* WagersVC.swift in Sources */,
+				D782D6C12450F6ED004066FA /* SingleWagerVC.swift in Sources */,
+				D782D6BF2450F6B1004066FA /* LedgerVC.swift in Sources */,
 				D78C8B0A2343D63C000D260C /* Wager.swift in Sources */,
 				D78C8AFB2343C04A000D260C /* NewWagerVC.swift in Sources */,
 				D7E4BD0822FA155000A4079A /* LoginViewController.swift in Sources */,
@@ -507,15 +540,10 @@
 				D793024E227525AD001A3C2F /* StartViewController.swift in Sources */,
 				D71CB646234BD11E006821F3 /* AddFriendView.swift in Sources */,
 				D78C8B0E2347B52E000D260C /* TabViewController.swift in Sources */,
-				D78C8AFF2343C07F000D260C /* ActivityVC.swift in Sources */,
 				D7F6011422683BFD00F1AFA0 /* AppDelegate.swift in Sources */,
 				D7F6011622683BFD00F1AFA0 /* FirstViewController.swift in Sources */,
-				D723A740244E4CD5002F6053 /* SingleWagerVC.swift in Sources */,
 				D78C8B102347BD56000D260C /* AddFriendVC.swift in Sources */,
-				D78C8B032343C0BB000D260C /* WagersVC.swift in Sources */,
 				D7E4BD0A22FA155E00A4079A /* SignUpViewController.swift in Sources */,
-				D78C8B082343C3F8000D260C /* ProfileVC.swift in Sources */,
-				D78C8AFD2343C064000D260C /* LedgerVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
