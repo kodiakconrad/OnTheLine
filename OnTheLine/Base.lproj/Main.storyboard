@@ -470,7 +470,6 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.60392156860000001" green="0.82352941180000006" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="X0i-2b-fjA" firstAttribute="trailing" secondItem="Xd0-4X-4zS" secondAttribute="trailing" id="3vn-rR-VUD"/>
                                                 <constraint firstItem="iTg-iL-nSC" firstAttribute="leading" secondItem="zdl-0d-UYg" secondAttribute="leading" id="63L-V1-3Yv"/>
@@ -530,6 +529,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbL-ez-ntq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6055.1999999999998" y="-322.16748768472905"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ff7-Ln-DpX">
+            <objects>
+                <viewController storyboardIdentifier="singleWager" id="dKc-FV-Yhi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dl4-7s-8ga">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEf-Dx-nnS">
+                                <rect key="frame" x="166" y="423" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="wKc-gi-rCn"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4cM-3W-B52" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7186" y="-342"/>
         </scene>
         <!--Find Friend-->
         <scene sceneID="VUd-VW-mQO">
@@ -1055,6 +1078,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="L8o-wi-uLj">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="3rs-hC-nCB" kind="relationship" relationship="rootViewController" id="eTp-jd-wu1"/>
                     </connections>

@@ -1,14 +1,14 @@
 //
-//  ActivityViewController.swift
+//  SingleWagerVC.swift
 //  OnTheLine
 //
-//  Created by Kodiak Conrad on 10/1/19.
-//  Copyright © 2019 Kodiak Conrad. All rights reserved.
+//  Created by Kodiak Conrad on 4/20/20.
+//  Copyright © 2020 Kodiak Conrad. All rights reserved.
 //
 
 import UIKit
 
-class ActivityViewController: UIViewController {
+class SingleWagerVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
