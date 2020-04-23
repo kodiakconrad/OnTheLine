@@ -187,8 +187,14 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - UITableViewDataSource
     
+    func numberOfSections(in tableView: UITableView) -> Int { return 3 }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellCounts[section]
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return headers[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -221,19 +227,14 @@ class WagersVC: TabViewController, UITableViewDataSource, UITableViewDelegate {
             case .outcome:
             print("case outcome")
         }
-        cell.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(pressedCell)))
+        cell.addGestureRecognizer(WagerTapGestureRecognizer.init(target: self, action: #selector(pressedCell), wager: cellData))
         return cell
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int { return 3 }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return headers[section]
-    }
-    
-    @objc func pressedCell() {
+    @objc func pressedCell(sender: WagerTapGestureRecognizer) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let wagerVC = storyboard.instantiateViewController(withIdentifier: "singleWager")
+        let wagerVC = storyboard.instantiateViewController(withIdentifier: "singleWager") as! SingleWagerVC
+        wagerVC.wager = sender.wager
         self.navigationController?.pushViewController(wagerVC, animated: true)
     }
     
@@ -270,10 +271,10 @@ extension Date
 
 
 class WagerTapGestureRecognizer: UITapGestureRecognizer {
-    var opponentUsername : String?
+    var wager : Wager?
     
-    init(target: Any?, action: Selector?, username: String) {
+    init(target: Any?, action: Selector?, wager: Wager) {
         super.init(target: target, action: action)
-        opponentUsername = username
+        self.wager = wager
     }
 }

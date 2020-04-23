@@ -530,23 +530,27 @@
             </objects>
             <point key="canvasLocation" x="6055.1999999999998" y="-322.16748768472905"/>
         </scene>
-        <!--View Controller-->
+        <!--Single WagerVC-->
         <scene sceneID="ff7-Ln-DpX">
             <objects>
-                <viewController storyboardIdentifier="singleWager" id="dKc-FV-Yhi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="singleWager" id="dKc-FV-Yhi" customClass="SingleWagerVC" customModule="OnTheLine" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dl4-7s-8ga">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEf-Dx-nnS">
-                                <rect key="frame" x="166" y="423" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixh-Kf-wP4">
+                                <rect key="frame" x="16" y="44" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="pressedBack:" destination="dKc-FV-Yhi" eventType="touchUpInside" id="nFc-Th-Wss"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.6023298654" green="0.83773978309999997" blue="0.86662079020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ixh-Kf-wP4" firstAttribute="top" secondItem="wKc-gi-rCn" secondAttribute="top" id="1UP-hf-gbb"/>
+                            <constraint firstItem="Ixh-Kf-wP4" firstAttribute="leading" secondItem="wKc-gi-rCn" secondAttribute="leading" constant="16" id="QtS-Mc-3rT"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="wKc-gi-rCn"/>
                     </view>
                 </viewController>
@@ -1092,6 +1096,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="qzA-8X-GH0"/>
-        <segue reference="kb4-LB-vku"/>
+        <segue reference="Jsa-Be-15r"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,16 +7,26 @@
 //
 
 import UIKit
-
 class SingleWagerVC: UIViewController {
-
+    
+    var wager:Wager? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let uname1 = wager?.users[0]
+        let uname2 = wager?.users[1]
+        let wagerID = wager?.wagerID
+        // get two user IDs
+        // compare to self, find other user id
+
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func pressedBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 
